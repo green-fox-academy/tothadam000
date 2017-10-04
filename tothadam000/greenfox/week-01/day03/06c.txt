@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+int main() {
+	int f = 16;
+	f=f/4;
+	printf(" %d ", f);
+	// please square root f's value
+	return 0;
+}

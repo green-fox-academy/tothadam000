@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1507240318 source:c:\users\Ádám\desktop\c\ws10-05(0.8c)\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1507240616 source:c:\users\Ádám\greenfox\tothadam000\greenfox\week-01\day04\ws10-05(0.8c)\main.c
+	<stdio.h>
+	<stdlib.h>
+

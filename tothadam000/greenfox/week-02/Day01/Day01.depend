@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1507557770 source:c:\users\Ádám\greenfox\tothadam000\greenfox\week-01\day03(10-04)\day01\main.c
+	<stdio.h>
+	"another_file.h"
+
+1507557333 c:\users\Ádám\greenfox\tothadam000\greenfox\week-01\day03(10-04)\day01\another_file.h
+
+1507557770 source:c:\users\Ádám\gf\tothadam000\greenfox\week-02\day01\main.c
+	<stdio.h>
+	"another_file.h"
+
+1507560294 c:\users\Ádám\gf\tothadam000\greenfox\week-02\day01\another_file.h
+
+1507557660 c:\users\Ádám\gf\tothadam000\greenfox\week-02\day01\another_file.c
+	<stdint.h>
+	"another_file.h"
+

@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1507581950 source:c:\users\Ádám\gf\tothadam000\greenfox\week-02\day01\greet\main.c
+	<stdio.h>
+	<stdlib.h>
+	"name.h"
+
+1507581849 c:\users\Ádám\gf\tothadam000\greenfox\week-02\day01\greet\name.h
+

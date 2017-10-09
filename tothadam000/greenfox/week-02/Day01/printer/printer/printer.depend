@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1507576330 source:c:\users\Ádám\gf\tothadam000\greenfox\week-02\day01\printer\printer\main.c
+	<stdio.h>
+	<stdlib.h>
+	"number.h"
+
+1507576306 c:\users\Ádám\gf\tothadam000\greenfox\week-02\day01\printer\printer\number.h
+

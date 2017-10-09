@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1507582673 source:c:\users\Ádám\gf\tothadam000\greenfox\week-02\day01\double\main.c
+	<stdio.h>
+	<stdlib.h>
+	"numdouble.h"
+
+1507582373 c:\users\Ádám\gf\tothadam000\greenfox\week-02\day01\double\numdouble.h
+

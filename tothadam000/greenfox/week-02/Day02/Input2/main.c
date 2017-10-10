@@ -2,7 +2,7 @@
 
 int main() {
     char buffer[255];   // Buffer variable for user input
-    char pets_name[10];
+    char pets_name[15];
     //TODO:
     // Get the user's name with gets
     puts("What your name? ");
@@ -13,9 +13,10 @@ int main() {
     printf("%s\n", buffer);
 
     //TODO:
-    // Get the user's pet name with gets
-    puts("What your pet's name? ");
-    gets(pets_name);
+    // Get the user's pet name with getch
+    //for (int i =0 ; i<= 14 ; i++ ){
+       // pets_name [i] = getch ();
+    }
 
     //TODO:
     // Print it out

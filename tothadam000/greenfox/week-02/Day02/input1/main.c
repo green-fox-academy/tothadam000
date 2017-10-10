@@ -11,5 +11,5 @@ int main() {
     // Print it out with printf
     printf("%s\n", buffer);
 
-    return 0;
+    return ;
 }

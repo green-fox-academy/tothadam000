@@ -9,7 +9,7 @@ int main() {
 
     //TODO:
     // Print it out with printf
-    printf("%s", buffer);
+    printf("%s\n", buffer);
 
     return 0;
 }

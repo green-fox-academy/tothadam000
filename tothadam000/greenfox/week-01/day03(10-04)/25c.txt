@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+/*
+Create a program which can tell how to pay an exact amount of money
+for example 45670 Ft, is the amount (store this as an integer)
+and the output should be:
+2-20000Ft
+1-5000Ft
+1-500Ft
+1-100Ft
+1-50Ft
+1-20Ft
+*/
+
+/*
+Take care of the rounding (when giving back 5 coins):
+1, 2 - 0 down
+3, 4 - 5 up
+6, 7 - 5 down
+8, 9 - 0 up
+*/
+
+int main()
+{
+    int amount_of_money = 57545;
+
+    int cash20e = 20000;
+    int cash10e = 10000;
+    int cash5e = 5000;
+    int cash2e = 2000;
+    int cash1e = 1000;
+    int cash5k = 500;
+    int coin2k = 200;
+    int coin1k = 100;
+    int coin50 = 50;
+    int coin20 = 20;
+    int coin10 = 10;
+    int coin5 = 5;
+    int seged;
+    if (amount_of_money / cash20e >= 1) {
+        seged = floor(amount_of_money / cash20e);
+        printf("%d-%dFt\n",seged,cash20e);
+        amount_of_money = amount_of_money - seged * cash20e;
+    }if (amount_of_money / cash10e >= 1) {
+        seged = floor(amount_of_money / cash10e);
+        printf("%d-%dFt\n",seged,cash10e);
+        amount_of_money = amount_of_money - seged * cash10e;
+    }if (amount_of_money / cash5e >=1) {
+        seged = floor(amount_of_money / cash5e);
+        printf("%d-%dFt\n",seged,cash5e);
+        amount_of_money = amount_of_money - seged * cash5e;
+    }if (amount_of_money / cash2e >= 1) {
+        seged = floor(amount_of_money / cash2e);
+        printf("%d-%dFt\n",seged,cash2e);
+        amount_of_money = amount_of_money - seged * cash2e;
+    }if (amount_of_money / cash1e >=1) {
+        seged = floor(amount_of_money / cash1e);
+        printf("%d-%dFt\n",seged,cash1e);
+        amount_of_money = amount_of_money - seged * cash1e;
+    }if (amount_of_money / cash5k >= 1) {
+        seged = floor(amount_of_money / cash5k);
+        printf("%d-%dFt\n",seged,cash5k);
+        amount_of_money = amount_of_money - seged * cash5k;
+    }if (amount_of_money / coin2k >=1) {
+        seged = floor(amount_of_money / coin2k);
+        printf("%d-%dFt\n",seged,coin2k);
+        amount_of_money = amount_of_money - seged * coin2k;
+    }if (amount_of_money / coin1k >= 1) {
+        seged = floor(amount_of_money / coin1k);
+        printf("%d-%dFt\n",seged,coin1k);
+        amount_of_money = amount_of_money - seged * coin1k;
+    }if (amount_of_money / coin50 >=1) {
+        seged = floor(amount_of_money / coin50);
+        printf("%d-%dFt\n",seged,coin50);
+        amount_of_money = amount_of_money - seged * coin50;
+    }if (amount_of_money / coin20 >=1) {
+        seged = floor(amount_of_money / coin20);
+        printf("%d-%dFt\n",seged,coin20);
+        amount_of_money = amount_of_money - seged * coin20;
+    }if (amount_of_money / coin10 >=1) {
+        seged = floor(amount_of_money / coin20);
+        printf("%d-%dFt\n",seged,coin10);
+        amount_of_money = amount_of_money - seged * coin10;
+    }if (amount_of_money / coin5 >=1) {
+        seged = floor(amount_of_money / coin5);
+        printf("%d-%dFt\n",seged,coin5);
+        amount_of_money = amount_of_money - seged * coin5;
+
+        }
+
+
+
+    return 0;
+}

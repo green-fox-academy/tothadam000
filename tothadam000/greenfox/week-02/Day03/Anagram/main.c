@@ -5,10 +5,12 @@ int main(void)
 {
     char word[50];
     char anagram_of_the_word[50];
+
     printf("Enter a word : ");
     scanf("%s", word);
     printf("Enter anagram of the word : ");
     scanf("%s", anagram_of_the_word);
+
     int equal = strcmp(word, anagram_of_the_word);
         if (equal != 0) {
             not_an_anagram();

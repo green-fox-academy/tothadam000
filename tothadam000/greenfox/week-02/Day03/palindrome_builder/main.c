@@ -3,20 +3,19 @@
 
 int main(void)
 {
-char word[50];
-char end;
+    char word[50];
+    char end;
 
-printf("Enter a word and I'll give it to you backwards: ");
+    printf("Enter a word and I'll give it to you backwards: ");
+    scanf("%s", word);
 
-scanf("%s", word);
-
-end = strlen(word) - 1;
+    end = strlen(word) - 1;
 
     printf("%s",word);
-for (int x = end; x >= 0; --x) {
-    printf("%c", word[x]);
+    for (int x = end; x >= 0; --x) {
+        printf("%c", word[x]);
 }
 
-return 0;
+    return 0;
 }
 

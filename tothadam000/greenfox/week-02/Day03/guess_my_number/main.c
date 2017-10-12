@@ -7,8 +7,8 @@ int main(void) {
     int r = rand() % 10 + 1;
     int guess;
     int counter = 5;
-    int i = 0;
-    int j = 100;
+    //int i = 0;
+    //int j = 100;
     printf("Guess my number! ");
 
     /*scanf("%d", &guess);
@@ -23,17 +23,22 @@ int main(void) {
             }*/
         if (guess == r) {
             printf("You guessed correctly! Congratulations!\n", counter);
+            break;
            }
         if (guess < r) {
             counter--;
+            if (counter == 0){
+                break;
+            }
             printf("Your guess is too low. Guess again. ");
         }
         if (guess > r) {
             counter--;
+            if (counter == 0){
+                break;
             printf("Your guess is too high. Guess again. ");
         }
     } while (guess == r || counter > 0);
-
-
+    }
     return 0;
 }

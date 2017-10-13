@@ -10,7 +10,7 @@ int main()
     int counter = 5;
 
     printf("I've the number between 1-100. You have 5 lives.");
-     printf("%d", r);
+    // printf("%d", r);
 
     do{
         scanf("%d", &guess);

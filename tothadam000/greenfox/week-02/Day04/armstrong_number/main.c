@@ -1,13 +1,26 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 
-int main()
-{
-    int typed_number;
-    printf("Type the number:");
-    scanf("%d", typed_number);
+int main() {
+    int arms;
+    int check = 0;
+    int rem = 0;
+    int sum = 0;
 
+    printf("Type a number: ");
+    scanf("%d", &arms);
+
+    check = arms;
+
+    while(check != 0) {
+        rem = check % 10;
+        sum = sum + (rem * rem * rem);
+        check = check / 10;
+   }
+
+    if(sum == arms)
+        printf("%d is an armstrong number.", arms);
+    else
+        printf("%d is not an armstrong number.", arms);
 
     return 0;
 }

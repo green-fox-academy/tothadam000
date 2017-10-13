@@ -2,12 +2,10 @@
 
 int main() {
     int arms;
-    int check = 0;
-    int rem = 0;
-    int sum = 0;
+    int check, rem, sum = 0;
 
-    printf("Type a number: ");
-    scanf("%d", &arms);
+    printf("Type a number:");
+    scanf("%d", arms);
 
     check = arms;
 

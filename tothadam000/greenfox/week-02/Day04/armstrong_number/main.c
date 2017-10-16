@@ -5,7 +5,7 @@ int main() {
     int check, rem, sum = 0;
 
     printf("Type a number:");
-    scanf("%d", arms);
+    scanf("%d", &arms);
 
     check = arms;
 

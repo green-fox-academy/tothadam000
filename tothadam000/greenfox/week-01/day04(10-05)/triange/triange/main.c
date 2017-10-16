@@ -16,7 +16,7 @@ int main()
 	int n;
     int i;
 
-    printf("Rows:");
+    printf("Row s:");
     scanf("%d", &rows);
 
 	for(i = 1; i <= rows; i++)

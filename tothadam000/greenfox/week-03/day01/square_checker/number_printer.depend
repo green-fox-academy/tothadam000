@@ -1,9 +1,0 @@
-# depslib dependency file v1.0
-1508162549 source:c:\users\Ádám\gf\tothadam000\greenfox\week-03\number_printer\main.c
-	<stdio.h>
-	<math.h>
-
-1508164129 source:c:\users\Ádám\tothadam000\tothadam000\greenfox\week-03\square_checker\main.c
-	<stdio.h>
-	<math.h>
-

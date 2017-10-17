@@ -11,9 +11,10 @@ int main()
     //what do you see?
 
     for(int i = 0; i < 10; ++i) {
-    f_array[i] = (int)i_array[i];
+    i_array[i] = f_array[i];
+
+    printf("%d\n", i_array[i]);
     }
-    printf("The numbers of the array: %d", i_array[10]);
 
     return 0;
 }

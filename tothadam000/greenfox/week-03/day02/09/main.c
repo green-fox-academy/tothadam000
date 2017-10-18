@@ -3,13 +3,13 @@
 
 int main()
 {
-    long long binary_number1;
-    long long binary_number2;
+    int binary_number1;
+    int binary_number2;
 
     printf("Enter a binary number: ");
-    scanf("%lld", &binary_number1);
+    scanf("%d", &binary_number1);
     printf("Enter 2nd binary number: ");
-    scanf("%lld", &binary_number2);
+    scanf("%d", &binary_number2);
 
     int bn1 = convertBinaryToDecimal(binary_number1);
     int bn2 = convertBinaryToDecimal(binary_number2);
@@ -22,7 +22,7 @@ int main()
 
     return 0;
 }
-int convertBinaryToDecimal(long long n)
+int convertBinaryToDecimal(int n)
 {
     int decimalNumber = 0, i = 0, remainder;
     while (n!=0)

@@ -3,21 +3,21 @@
 
 // This program should work correctly with the following input: 20, 400
 
-int main()
+void muv(int a,int b,int *r1,int *r2)
 {
-	float number, result;
-	printf("Please enter a number: ");
-	fflush(stdin);
-	scanf("%f", &number);
-
-	printf("Please enter the square of that number: ");
-	fflush(stdin);
-	scanf("%f", &result);
-
-	if (pow(number, 2) == result)
-		printf(":)\n");
-	else
-		printf(":(\n");
-
-	return 0;
+    *p1=a+b;
+    *p2=a-b;
 }
+
+int main(void)
+{
+    int x,y,i,j;
+    x=6;
+    y=7;
+    muv(x,y,&i,&j);
+
+    printf("%i %i",i,j);
+
+    return 0;
+}
+

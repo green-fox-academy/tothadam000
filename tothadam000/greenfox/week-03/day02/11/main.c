@@ -13,13 +13,37 @@ int main()
 	char command[256];
     char logged_in = 0;
     char registered = 0;
-    char *ret;
+    char logged_out = 0;
+    char ret;
 
-     while(strcmp(command, "exit") != 0){
-        printf("Type a command: ");
-        scanf("%s", command);
-            if (
+    printf("Type a command: ");
+    scanf("%s", command);
 
+    while(strcmp(command, "exit") != 0){
+        switch (command){
+
+        case register :
+            if (registered == 0){
+                registered = 1
+                printf("Registration...");
+            }else
+                printf("You are already registered!");
+        case login :
+            if (reg == 0){
+               printf("You have to registration to logging in!")}
+            else if (logged_in == 0){
+                logged_in = 1
+                printf("Logging in...");
+            else
+                printf("Logging in...");
+        case logout:
+            if (logged_out == 0){
+                logged_out = 1;
+                printf(Logging out...);
+            }
+
+
+       }
 
 
 

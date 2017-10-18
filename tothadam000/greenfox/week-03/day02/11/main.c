@@ -15,40 +15,52 @@ int main()
     char registered = 0;
     char logged_out = 0;
     char ret;
+    int tmp;
 
     printf("Type a command: \n");
     printf("-to registration type: register\n");
     printf("-to logging in type: login\n");
     printf("-to logging out type: logout\n");
     printf("-to exit type: exit\n");
-    scanf("%s", command);
 
     while(strcmp(command, "exit") != 0){
-        switch (command){
+    scanf("%s", command);
 
-        case "register":
+    if (strcmp(command, "login") == 0){
+        tmp = 1;
+    }else if (strcmp(command, "register") == 0){
+        tmp = 2;
+    }
+    /*if (strcmp(command, "login") == 0) {
+            printf("alma");
+    }*/
+
+        switch (tmp){
+
+        case 2:
             if (registered == 0){
                 registered = 1;
                 printf("Registration...");
             }else {
                 printf("You are already registered!");
             }
-        case "login" :
+        case 1 :
             if (registered == 0){
-               printf("You have to registration to logging in!")
+               printf("You have to registration to logging in!");
             }else if (logged_in == 0){
                 logged_in = 1;
                 printf("Logging in...");
             }else {
                 printf("Logging in...");
             }
-        case "logout":
+        /*case "logout":
             if (logged_out == 0){
                 logged_out = 1;
-                printf(Logging out...);
-            }default {
-                printf(Invalid command!);
-                }
+                printf("Logging out...");
+            }*/
+        default:
+                printf("Invalid command!");
+
         }
     }
 }

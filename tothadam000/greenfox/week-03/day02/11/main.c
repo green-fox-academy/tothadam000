@@ -16,11 +16,11 @@ int main()
     char logged_out = 0;
     char ret;
 
-    printf("Type a command: ");
-    printf("-to registration type: register");
-    printf("-to lgging in type: login");
-    printf("-to logging out type: logout");
-    printf("-to exit type: exit");
+    printf("Type a command: \n");
+    printf("-to registration type: register\n");
+    printf("-to logging in type: login\n");
+    printf("-to logging out type: logout\n");
+    printf("-to exit type: exit\n");
     scanf("%s", command);
 
     while(strcmp(command, "exit") != 0){

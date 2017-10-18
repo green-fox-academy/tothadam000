@@ -15,12 +15,12 @@ int main()
     char registered = 0;
     char *ret;
 
-    while(1){
-        printf("What the heck?");
+     while(strcmp(command, "exit") != 0){
+        printf("Type a command: ");
         scanf("%s", command);
-            if (ret = strstr(command)){
+            if (
 
-            }
+
 
 
 

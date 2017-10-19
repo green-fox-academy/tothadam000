@@ -14,7 +14,7 @@ int main()
     char logged_in = 0;
     char registered = 0;
     char logged_out = 0;
-    char ret;
+    //char ret;
     int tmp;
 
     printf("Type a command: \n");
@@ -31,35 +31,35 @@ int main()
     }else if (strcmp(command, "register") == 0){
         tmp = 2;
     }
-    /*if (strcmp(command, "login") == 0) {
-            printf("alma");
-    }*/
+    else if (strcmp(command, "logout") == 0) {
+         tmp = 3 ;
+    }
+    switch (tmp){
 
-        switch (tmp){
-
-        case 2:
-            if (registered == 0){
-                registered = 1;
-                printf("Registration...");
-            }else {
-                printf("You are already registered!");
-            }
-        case 1 :
-            if (registered == 0){
-               printf("You have to registration to logging in!");
-            }else if (logged_in == 0){
-                logged_in = 1;
-                printf("Logging in...");
-            }else {
-                printf("Logging in...");
-            }
-        /*case "logout":
-            if (logged_out == 0){
-                logged_out = 1;
-                printf("Logging out...");
-            }*/
-        default:
-                printf("Invalid command!");
+    case 2:
+        if (registered == 0){
+            registered = 1;
+            printf("Registration...");
+        }else {
+            printf("You are already registered!");
+        }
+    case 1 :
+        if (registered == 0){
+           printf("You have to registration to logging in!");
+        }else if (logged_in == 0){
+            logged_in = 1;
+            printf("Logging in...");
+        }else {
+            printf("Logging in...");
+        }
+    case 3:
+        if (logged_out == 0){
+            printf("You have to logging in to logging out!");
+            logged_out = 1;
+            printf("Logging out...");
+        }
+    default:
+            printf("Invalid command!");
 
         }
     }

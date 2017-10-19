@@ -15,7 +15,7 @@ int main()
     char registered = 0;
     char logged_out = 0;
     //char ret;
-    int tmp;
+    int tmp = 0;
 
     printf("Type a command: \n");
     printf("-to registration type: register\n");
@@ -39,28 +39,32 @@ int main()
     case 2:
         if (registered == 0){
             registered = 1;
-            printf("Registration...");
+            printf("Registration...\n");
         }else {
-            printf("You are already registered!");
+            printf("You are already registered!\n");
         }
+        break;
     case 1 :
         if (registered == 0){
-           printf("You have to registration to logging in!");
+           printf("You have to registration to logging in!\n");
         }else if (logged_in == 0){
             logged_in = 1;
-            printf("Logging in...");
-        }else {
-            printf("Logging in...");
+            printf("Logging in...\n");
+        /*}else {
+            printf("Logging in...\n");*/
         }
+        break;
     case 3:
         if (logged_out == 0){
             printf("You have to logging in to logging out!");
-            logged_out = 1;
-            printf("Logging out...");
+        }else if (logged_out = 1){
+            printf("Logging out...\n");
         }
+        break;
     default:
-            printf("Invalid command!");
+            printf("Invalid command!\n");
+    break;
 
-        }
+    }
     }
 }

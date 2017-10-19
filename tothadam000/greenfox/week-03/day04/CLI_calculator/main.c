@@ -1,11 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
+#include <windows.h>
+
+void set_cursor_pos();
+void welcome_screen();
+COORD coord = {0,0};
 
 int main()
 {
+    char command [256];
     welcome_screen();
 
+    while(strcmp(command, "exit") != 0){
+        gets(command);
+        if(strcmp(command, "clear") == 0){
+            system("cls");
+        }if(strcmp(command, "help") == 0){
+            welcome_screen();
+            }
+    }
     return 0;
 }
 
@@ -33,7 +48,16 @@ void welcome_screen()
     printf("====================================\n");
     printf("\tPress enter to start!\n");
     printf("====================================\n");
+    getchar();
+    system("cls");
 
+}
+
+void set_cursor_pos(int x, int y)
+{
+	coord.X = x;
+	coord.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 /*{
     while(strcmp(command, "exit") != 0){

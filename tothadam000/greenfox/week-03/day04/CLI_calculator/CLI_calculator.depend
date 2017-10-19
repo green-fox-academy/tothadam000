@@ -1,6 +1,8 @@
 # depslib dependency file v1.0
-1508406256 source:c:\users\Ádám\tothadam000\tothadam000\greenfox\week-03\day04\cli_calculator\main.c
+1508409562 source:c:\users\Ádám\tothadam000\tothadam000\greenfox\week-03\day04\cli_calculator\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<math.h>
+	<windows.h>
 

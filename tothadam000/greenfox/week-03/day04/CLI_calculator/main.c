@@ -11,25 +11,27 @@ COORD coord = {0,0};
 int main()
 {
     char command [256];
-    char* op_1, op_2;
-    float input_1, input_2;
+    char *op_1, *op_2;
+    float input_1;
+    float input_2;
     float result;
+    const char plus [] = " + ";
     welcome_screen();
 
     gets(command);
 
     while(strcmp(command, "exit") != 0){
-        //gets(command);
+        gets(command);
         if(strcmp(command, "clear") == 0){
             system("cls");
         }
         if(strcmp(command, "help") == 0){
             welcome_screen();
         }
-        if (strstr(command, "+") == 0) {
-        op_1 = strtok(command, " ");
-        strtok(NULL, " ");
-        op_2 = strtok(NULL, " ");
+        if (strstr(command, "+") != 0) {
+        op_1 = strtok(command, plus);
+        strtok(NULL, plus);
+        op_2 = strtok(NULL, plus);
         input_1 = atof (op_1);
         input_2 = atof (op_2);
         result = input_1 + input_2;

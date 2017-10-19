@@ -11,15 +11,31 @@ COORD coord = {0,0};
 int main()
 {
     char command [256];
+    char* op_1, op_2;
+    float input_1, input_2;
+    float result;
     welcome_screen();
 
+    gets(command);
+
     while(strcmp(command, "exit") != 0){
-        gets(command);
+        //gets(command);
         if(strcmp(command, "clear") == 0){
             system("cls");
-        }if(strcmp(command, "help") == 0){
+        }
+        if(strcmp(command, "help") == 0){
             welcome_screen();
-            }
+        }
+        if (strstr(command, "+") == 0) {
+        op_1 = strtok(command, " ");
+        strtok(NULL, " ");
+        op_2 = strtok(NULL, " ");
+        input_1 = atof (op_1);
+        input_2 = atof (op_2);
+        result = input_1 + input_2;
+        printf("%.3f", result);
+        }
+
     }
     return 0;
 }
@@ -48,6 +64,7 @@ void welcome_screen()
     printf("====================================\n");
     printf("\tPress enter to start!\n");
     printf("====================================\n");
+
     getchar();
     system("cls");
 
@@ -59,11 +76,4 @@ void set_cursor_pos(int x, int y)
 	coord.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
-/*{
-    while(strcmp(command, "exit") != 0){
-            switch
-                case
-                case
-                case
-                default continue
-}*/
+

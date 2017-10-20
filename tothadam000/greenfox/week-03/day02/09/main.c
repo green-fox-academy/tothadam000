@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+//TODO: write a program which asks for two binary numbers.
+//write a function, which prints out the sum of the 2 binary numbers.
 
 int main()
 {
@@ -15,9 +17,9 @@ int main()
     int bn2 = convertBinaryToDecimal(binary_number2);
     int sum = bn1 + bn2;
 
-    //printf("%lld in binary = %d in decimal", binary_number1, convertBinaryToDecimal(binary_number1));
-    //printf("\n%lld in binary = %d in decimal", binary_number2, convertBinaryToDecimal(binary_number2));
-    //printf("\nsum of two dec number: %d\n", sum);
+    printf("%d in binary = %d in decimal", binary_number1, convertBinaryToDecimal(binary_number1));
+    printf("\n%d in binary = %d in decimal", binary_number2, convertBinaryToDecimal(binary_number2));
+    printf("\nsum of two dec number: %d\n", sum);
     printf("Sum of the two binary numbers: %d\n", convertDecimalToBinary(sum));
 
     return 0;
@@ -42,7 +44,6 @@ int convertDecimalToBinary(int n)
     while (n!=0)
     {
         remainder = n%2;
-        //printf("Step %d: %d/2, Remainder = %d, Quotient = %d\n", step++, n, remainder, n/2);
         n /= 2;
         binaryNumber += remainder*i;
         i *= 10;

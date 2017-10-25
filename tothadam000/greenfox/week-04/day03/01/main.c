@@ -14,7 +14,7 @@ int main() {
     computer.bits = 64;
 
     printf( "Cpu speed : %.1f Ghz\n", computer.cpu_speed_GHz);
-    printf( "Ram size : %dGB\n", computer.ram_size_GB);
+    printf( "Ram size : %d GB\n", computer.ram_size_GB);
     printf( "Bits : %d\n", computer.bits);
 
     return 0;

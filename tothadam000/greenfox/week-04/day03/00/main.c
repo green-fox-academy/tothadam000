@@ -26,8 +26,8 @@ struct NotBitfield{
 };
 
 int main() {
-    printf("%zu\n", sizeof (struct Bitfield));
-    printf("%zu\n", sizeof (struct NotBitfield));
+    printf("%d\n", sizeof (struct Bitfield));
+    printf("%d\n", sizeof (struct NotBitfield));
 
     return 0;
 }

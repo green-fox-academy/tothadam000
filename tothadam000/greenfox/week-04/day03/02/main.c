@@ -21,7 +21,9 @@ int main() {
     print_car(one);
     printf("TOYOTA\n");
     print_car(two);
+    printf("LAND_ROVER\n");
     print_car(three);
+    printf("TESLA\n");
     print_car(four);
 
     return 0;
@@ -31,6 +33,5 @@ void print_car(struct Car car1){
     if (car1.type != TESLA){
         printf("%.f\n", car1.gas);
     }
-
 }
 

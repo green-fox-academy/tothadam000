@@ -13,8 +13,8 @@ int main() {
 
     comp.bits = 64;
 
-    printf( "Cpu speed : %.1f Ghz\n", comp.cpu_speed_GHz);
-    printf( "Ram size : %d GB\n", comp.ram_size_GB);
+    printf( "Cpu speed : %.1fGhz\n", comp.cpu_speed_GHz);
+    printf( "Ram size : %dGB\n", comp.ram_size_GB);
     printf( "Bits : %d\n", comp.bits);
 
     return 0;

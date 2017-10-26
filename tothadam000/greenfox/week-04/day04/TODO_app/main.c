@@ -10,11 +10,11 @@ welcome_screen();
 }
 void welcome_screen(){
     printf("\tTodo application\n"
-"==================================\n"
+"====================================\n"
 "Commands:\n"
 " -a   Adds a new task\n"
 " -wr  Write current todos to file\n"
-" -rd  Read todos from a file\n"
+" -rd  Read todds from a file\n"
 " -l   Lists all the tasks\n"
 " -e   Empty the list\n"
 " -rm   Removes a task\n"

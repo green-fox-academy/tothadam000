@@ -9,13 +9,13 @@ struct Computer {
     int bits;
 };
 int main() {
-    struct Computer computer = {3.2, 8, 32};
+    struct Computer comp = {3.2, 8, 32};
 
-    computer.bits = 64;
+    comp.bits = 64;
 
-    printf( "Cpu speed : %.1f Ghz\n", computer.cpu_speed_GHz);
-    printf( "Ram size : %d GB\n", computer.ram_size_GB);
-    printf( "Bits : %d\n", computer.bits);
+    printf( "Cpu speed : %.1f Ghz\n", comp.cpu_speed_GHz);
+    printf( "Ram size : %d GB\n", comp.ram_size_GB);
+    printf( "Bits : %d\n", comp.bits);
 
     return 0;
 }

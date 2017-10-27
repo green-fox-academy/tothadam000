@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-// TODO:
-// Create a function the constructs a point
-// It should take it's x and y coordinate as parameter
+//TODO:
+//Create a function the constructs a point
+//It should take it's x and y coordinate as parameter
 
-// TODO:
-// Create a function that takes 2 Points as a pointer and returns the distance between them
+//TODO:
+//Create a function that takes 2 Points as a pointer and returns the distance between them
 
 typedef struct {
     int x;

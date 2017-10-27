@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void welcome_screen();
 
@@ -11,7 +12,7 @@ typedef struct {
     unsigned char check;
 } todo_t;
 
-void add_new_task(todo_t task_name, char *name);
+void add_new_task(todo_t *task_name, char *name);
 
 int main()
 {
@@ -22,12 +23,12 @@ int main()
         gets(command);
         char *tok1 = strtok(command, " ");
         char *tok2 = strtok(NULL, " ");
-        char *ret;
+
         if(strcmp(tok1, "-a")== 0){
             printf("ok");
         }
-        else if(ret = strstr(command, "-wr")== 0){
-            add_new_task(ret, command);
+        else if(strstr(command, "-wr")== 0){
+
             task_counter++;
             printf("write");
         }
@@ -71,8 +72,8 @@ void welcome_screen(){
 " -p   Add priority to a task\n"
 " -lp  Lists all the tasks by priority\n");
 }
-void add_new_task(todo_t task_name, char *name){
-    strcpy(task_name[task_counter].name, char *name);
+void add_new_task(todo_t *task_name, char *name){
+    strcpy(task_name[task_counter].name, name);
 
 }
 

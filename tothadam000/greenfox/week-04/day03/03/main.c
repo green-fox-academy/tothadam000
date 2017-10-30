@@ -24,8 +24,10 @@ int main()
     printf("Type the coordinates of first number: ");
     scanf("%d", &a);
     scanf("%d", &b);
+
     point_t point_one = creat_point(a, b);
     printf("Type the coordinates of second number: ");
+
     scanf("%d", &a);
     scanf("%d", &b);
 

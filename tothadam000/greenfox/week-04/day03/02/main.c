@@ -3,10 +3,10 @@
 // Write a function that takes a Car as an argument and prints all it's stats
 // If the car is a Tesla it should not print it's gas level
 
-enum CarType {VOLVO, TOYOTA, LAND_ROVER, TESLA};
+typedef enum {VOLVO, TOYOTA, LAND_ROVER, TESLA}CarType;
 
 typedef struct {
-  enum CarType type;
+  CarType type;
   double km;
   double gas;
 }Car;

@@ -5,17 +5,17 @@
 
 enum CarType {VOLVO, TOYOTA, LAND_ROVER, TESLA};
 
-struct Car {
+typedef struct {
   enum CarType type;
   double km;
   double gas;
-};
+}Car;
 
 int main() {
-    struct Car one = {VOLVO, 456, 12};
-    struct Car two = {TOYOTA, 143, 46};
-    struct Car three = {LAND_ROVER, 951, 324};
-    struct Car four = {TESLA, 982, 12};
+    Car one = {VOLVO, 456, 12};
+    Car two = {TOYOTA, 143, 46};
+    Car three = {LAND_ROVER, 951, 324};
+    Car four = {TESLA, 982, 12};
 
     printf("VOLVO\n");
     print_car(one);
@@ -28,7 +28,7 @@ int main() {
 
     return 0;
 }
-void print_car(struct Car car1){
+void print_car(Car car1){
     printf( "%.f \n", car1.km);
     if (car1.type != TESLA){
         printf("%.f\n", car1.gas);

@@ -23,11 +23,6 @@
 
 int book_counter = 0;
 
-typedef enum {
-    OUTOFMEM,
-    SUCCESS
-} ret_value;
-
 typedef struct {
     char title[20];
     char author[20];
@@ -50,7 +45,7 @@ int main()
     printf("Type the title:\n");
     scanf("%s", tit);
     printf("Type the author:\n");
-    scanf("%s", aut);
+    gets(aut);
     printf("Type the year of publication:\n");
     scanf("%d", &year);
 

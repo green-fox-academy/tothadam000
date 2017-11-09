@@ -79,7 +79,7 @@ int number_search(int *array, int length)
      //If element is not found in array
      if(flag==0)
     {
-        printf("\n%d is not found in the array", user_number);
+        printf("\n%d is not found in the array.", user_number);
     }
     return -1;
 

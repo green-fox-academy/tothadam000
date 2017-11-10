@@ -12,19 +12,19 @@ int main(){
     int *apointer = integers;
     int size_array = sizeof (integers) / sizeof (integers[0]);
 
-    for(int* ptr = integers; ptr-integers < 16; ptr++){
-        printf("%d\n", *ptr);
+    for(int i = *apointer; i <= size_array; i++){
+        printf("%d\n", i);
     }
     printf("------------\n\n");
-    for(int i = *apointer; i < size_array; i+=2){
+    for(int i = *apointer + 1; i <= size_array; i+=2){
           printf(" %d\n", i);
     }
     printf("------------\n\n");
-    for(int i = *apointer; i < size_array; i+=4){
+    for(int i = *apointer + 3; i <= size_array; i+=4){
           printf(" %d\n", i);
     }
     printf("------------\n\n");
-    for(int i = *apointer; i < size_array; i+=8){
+    for(int i = *apointer + 7; i <= size_array; i+=8){
           printf(" %d\n", i);
     }
     return 0;

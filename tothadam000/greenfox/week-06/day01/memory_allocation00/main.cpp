@@ -21,5 +21,7 @@ int main() {
     cout << *p_name << endl;
     cout << *p_slice_of_pizza_you_can_eat << endl;
 
+    delete p_age, p_name, p_slice_of_pizza_you_can_eat;
+
   return 0;
 }

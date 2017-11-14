@@ -16,7 +16,6 @@ class Circle {
         }
         double get_area(){
             double area = 3.1416 * radius * radius;
-
             return area;
         }
         void set_datas(double radius){
@@ -27,7 +26,7 @@ class Circle {
 int main() {
     Circle co;
 
-    co.set_datas(5.5);
+    co.set_datas(5);
 
     cout << "The area of the circle is: " << co.get_area() << endl;
     cout << "The circumference of the circle is: " << co.get_circumference() << endl;

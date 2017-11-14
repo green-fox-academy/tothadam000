@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Student {
+class Student{
     private:
         string name;
         unsigned int age;
@@ -20,7 +20,7 @@ class Student {
         }
 };
 
-int main() {
+int main(){
   // Create a method on the Student class called "greet" that returns a string
   // like: "Hello my name is: <student name>"
 

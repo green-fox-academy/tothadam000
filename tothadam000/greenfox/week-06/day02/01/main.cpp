@@ -27,7 +27,7 @@ class Student {
 int main() {
   // Create a new instance of the Student class and set it's name to "John" and
   // it's age to 21
-    Student so("Adam", 31);
+    Student so("John", 21);
 
     //so.set_datas(Adam, 31);
 

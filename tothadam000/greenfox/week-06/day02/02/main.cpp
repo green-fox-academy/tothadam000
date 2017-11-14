@@ -4,10 +4,10 @@
 using namespace std;
 
 class Student {
-    public:
+    private:
         string name;
         unsigned int age;
-
+    public:
         Student(string name, unsigned int age) {
             this->age = age;
             this->name = name;

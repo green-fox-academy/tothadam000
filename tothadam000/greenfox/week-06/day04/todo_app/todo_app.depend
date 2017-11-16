@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1510849969 source:c:\users\Ádám\tothadam000\tothadam000\greenfox\week-06\day04\todo_app\main.cpp
+	<iostream>
+	<string>
+	<vector>
+

@@ -63,7 +63,7 @@ int main()
     cout << "the area is: " << circle_object.get_area() << endl;
 
     Triangle triangle_object;
-    triangle_object.set_datas(12, 36);
+    triangle_object.set_datas(5, 55);
     cout << "the area is: " << triangle_object.get_area() << endl;
 
     return 0;

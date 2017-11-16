@@ -39,8 +39,14 @@ int main() {
     object.print_welcome_screen();
 
     cin >> command;
-    if (command == "-a"){
-        add_new_task();
+
+    while (1){
+        if (command == "-a"){
+            add_new_task();
+            }
+        else if (command == "exit"){
+           break;
+        }
     }
     return 0;
 }

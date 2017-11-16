@@ -11,7 +11,8 @@ using namespace std;
 
 int main() {
     int *p_age = NULL;
-    p_age = new int (31);
+    p_age = new int;
+    *p_age = 31;
     string *p_name = NULL;
     p_name = new string ("Adam Toth");
     int *p_slice_of_pizza_you_can_eat = NULL;
@@ -21,7 +22,10 @@ int main() {
     cout << *p_name << endl;
     cout << *p_slice_of_pizza_you_can_eat << endl;
 
-    delete p_age, p_name, p_slice_of_pizza_you_can_eat;
+    delete p_age;
+    delete p_name;
+    delete p_slice_of_pizza_you_can_eat;
+
 
   return 0;
 }

@@ -16,20 +16,16 @@ class Todos{
         void add_new_task(){
             cin >> task;
             taskVector.push_back(task);
-            for (unsigned int i = 0; i < taskVector.size(); ++i){                  //debug
-            cout << taskVector[i] << endl;
+            for (unsigned int i = 0; i < taskVector.size(); ++i){
+            cout << taskVector[i] << endl;                                                  //debug
            }
-        }
-        void add_priority(){
+        }void add_priority(){
             cin >> priority;
             priorityVector.push_back(priority);
-            for (unsigned int i = 0; i < priorityVector.size(); ++i){             //debug
-            cout << priorityVector[i] << taskVector[i] << endl;
-           }
+            for (unsigned int i = 0; i < priorityVector.size(); ++i){
+            cout << priorityVector[i] << taskVector[i] << endl;                             //debug
+            }
         }
-       /* void list_all_task(){
-
-        }*/
 };
 class Engine: public Todos{
     protected:
@@ -44,10 +40,8 @@ class Engine: public Todos{
                     break;
                 }else if (command == "-a"){
                 todos_ojbect.add_new_task();
-                //cout << "test";                                               //debug
                 }else if (command == "-p"){
-                todos_ojbect.add_priority();                                    //debug
-                //cout << "test2";
+                todos_ojbect.add_priority();
                 }
             }
         }
@@ -75,15 +69,9 @@ int main() {
     Welcome welcome_object;
     welcome_object.print_welcome_screen();
 
-
     Engine engine_object;
-
     engine_object.program_engine();
-    //engine_object.add_new_task();
-    //engine_object.add_priority();
-    //todos_ojbect.program_engine();
-    //todos_ojbect.add_new_task();
-    //todos_ojbect.add_priority();
+
     return 0;
 }
 

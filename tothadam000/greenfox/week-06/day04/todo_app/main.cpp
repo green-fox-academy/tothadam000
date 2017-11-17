@@ -18,15 +18,15 @@ class valami{
         cout << "\tTodo application" << endl
         << "============================== " << endl
         << "Commands:" << endl
-        << "-a   Adds a new task" << endl
-        << "-wr  Write current todos to file" << endl
-        << "-rd  Read todos from a file" << endl
-        << "-l   Lists all the tasks" << endl
-        << "-e   Empty the list" << endl
+        << "-a    Adds a new task" << endl
+        << "-wr   Write current todos to file" << endl
+        << "-rd   Read todos from a file" << endl
+        << "-l    Lists all the tasks" << endl
+        << "-e    Empty the list" << endl
         << "-rm   Removes a task" << endl
-        << "-c   Completes a task" << endl
-        << "-p   Add priority to a task" << endl
-        << "-lp  Lists all the tasks by priority " << endl << endl;}
+        << "-c    Completes a task" << endl
+        << "-p    Add priority to a task" << endl
+        << "-lp   Lists all the tasks by priority " << endl << endl;}
 };
 
 
@@ -38,20 +38,23 @@ int main() {
     valami object;
     object.print_welcome_screen();
 
-    cin >> command;
+    cin >> command >> task;
 
     while (1){
-        if (command == "-a"){
-            add_new_task();
-            }
-        else if (command == "exit"){
+        if (command == "-exit"){
            break;
+       }
+        else if (command == "-a"){
+            add_new_task();
         }
     }
     return 0;
 }
 void add_new_task(){
-    cin >> task;
+   // cin >> task;
     taskVector.push_back(task);
-    cout << taskVector[0] << endl;
+    for (unsigned int i = 0; i < taskVector.size(); ++i){
+        cout << taskVector[i] << endl;
+    }
+
     }

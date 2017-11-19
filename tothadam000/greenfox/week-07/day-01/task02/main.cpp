@@ -15,8 +15,8 @@ int main() {
     }*/
 
     try {
-        char test_char[] = "test";
-            throw test_char;
+        char test_char_array[] = "test string in array";
+            throw test_char_array;
     }catch (char *t){
         cout << t << endl;
     }

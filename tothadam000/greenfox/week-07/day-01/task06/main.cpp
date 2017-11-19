@@ -10,8 +10,8 @@ void throw_func()throw (runtime_error);
 int main() {
     try {
         throw_func();
-    }catch (runtime_error t){
-        cout << t.what() << endl;
+    }catch (runtime_error test){
+        cout << test.what() << endl;
     }
 	return 0;
 }

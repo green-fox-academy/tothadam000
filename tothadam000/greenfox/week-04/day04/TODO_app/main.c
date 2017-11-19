@@ -25,10 +25,9 @@ int main()
         char *tok2 = strtok(NULL, " ");
 
         if(strcmp(tok1, "-a")== 0){
-            printf("ok");
+            printf("new task");
         }
         else if(strstr(command, "-wr")== 0){
-
             task_counter++;
             printf("write");
         }
@@ -59,7 +58,7 @@ int main()
     return 0;
 }
 void welcome_screen(){
-    printf("\tTodo application\n"
+    printf("\tTodo application\n---------------"
 "====================================\n"
 "Commands:\n"
 " -a   Adds a new task\n"

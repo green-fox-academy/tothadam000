@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1509029381 source:c:\users\Ádám\tothadam000\tothadam000\greenfox\week-04\day04\todo_app\main.c
+1510868204 source:c:\users\Ádám\tothadam000\tothadam000\greenfox\week-04\day04\todo_app\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 

@@ -5,23 +5,24 @@ using namespace std;
 // In the main(), put that function in a try block
 // Also in the main() catch, what your function throws
 
-void throw_func(int divnum, int trynum);
+void throw_func();
 int main() {
     int trynum = 10;
-    int divnum = 5;
+    int divnum = 0;
 
     try {
-        throw_func(divnum, trynum);
-    }catch (int error){
-        cout << error << endl;
-    }
+        if (divnum == 0){
+            throw_func();
+        }
+        else{
+            cout << trynum / divnum << endl;
+        }
+        }catch (int error){
+            cout << error << endl;
+        }
+    return 0;
+}
+void throw_func(){
+   throw 1;
+}
 
-	return 0;
-}
-void throw_func(int divnum, int trynum){
-    if (divnum == 0){
-        throw 1;
-       }
-    else
-        cout << trynum / divnum << endl;
-}

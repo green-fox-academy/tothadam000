@@ -1,29 +1,29 @@
 #include <iostream>
 using namespace std;
+//Try to run the following code!
 
-// Create a function which has two int parameters
-// It should divide them, but if the divider is 0
-// It should throw an exception
-// In the main use it in a try - catch block
+int main () {
 
-int main() {
-    //int a = 5;
-    //int b = 2;
+    int int_array[5] = {1, 2, 3, 4, 5};
+    int size_array = sizeof int_array / sizeof(int) ;
+    int index = 2;
 
     try {
-        divider_function(int error);
-    }catch (int error){
-        cout << "not allowed number" << endl;
+        if (index > size_array - 1){
+            throw 1;
+        }
+        else{
+            cout << int_array[index] << endl;
+        }
+
     }
+    catch (int error){
+        cout << "error massage: " << error << " = nice try honey!!!" << endl;
+    }
+    //cout << int_array[200];
+
     return 0;
 }
-int divider_function(int x, int y){
-    int x = 5;
-    int y = 0;
 
-    if (y == 0){
-        throw 0;
-    }
-    else
-        cout  <<  x / y << endl;
-}
+//The program should compile but crash!
+//Create a solution for this problem using try-catch block!

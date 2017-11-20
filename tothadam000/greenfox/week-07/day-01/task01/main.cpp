@@ -6,14 +6,19 @@ using namespace std;
 // Catch it in the catch block and write it out.
 
 int main() {
-    int _try = 10;
 
     try {
-            throw _try;
-    }catch (int t){
-        cout << t << endl;
+        int trynum = 10;
+        int divnum = 1;
+
+        if ( divnum == 0){
+            throw 1;
+       }
+       int div = trynum / divnum;
+       cout << div << endl;
     }
-
-
-	return 0;
+    catch(int error){
+        cout << "you can not devide by zero!" << endl;
+    }
+    return 0;
 }

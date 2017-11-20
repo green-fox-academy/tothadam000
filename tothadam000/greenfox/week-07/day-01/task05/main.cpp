@@ -1,20 +1,26 @@
 #include <iostream>
 using namespace std;
 
-// Create a function which throws an char
+// Create a function which throws a char
 // In the main(), put that function in a try block
 // Also in the main() catch, what your function throws
 
-char test_char[] = "test string in array";
-void throw_func()throw (char*);
+void throw_func(int divnum, int trynum);
 int main() {
+    int trynum = 10;
+    int divnum = 5;
+
     try {
-        throw_func();
-    }catch (char *t){
-        cout << t << endl;
+        throw_func(divnum, trynum);
+    }catch (char error){
+        cout << error << endl;
     }
-	return 0;
+    return 0;
 }
-void throw_func()throw (char*){
-    throw test_char;
+void throw_func(int divnum, int trynum){
+    if (divnum == 0){
+        throw 'x';
+       }
+    else
+        cout << trynum / divnum << endl;
 }

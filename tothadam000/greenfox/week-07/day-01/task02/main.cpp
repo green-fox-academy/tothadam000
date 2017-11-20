@@ -12,13 +12,13 @@ int main() {
         int divnum = 0;
 
         if ( divnum == 0){
-            throw 'x';
+            throw "nejooo";
        }
        int div = trynum / divnum;
        cout << div << endl;
     }
-    catch(char error){
-        cout << "error is: "<< error << endl;
+    catch(const char *error){
+        cout << error << endl;
         cout<< "you can not devide by zero!" << endl;
     }
     return 0;

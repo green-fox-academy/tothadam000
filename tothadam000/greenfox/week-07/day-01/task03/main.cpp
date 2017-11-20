@@ -10,11 +10,17 @@ using namespace std;
 int main() {
 
     try {
-        throw runtime_error("This is a runtime_error test");
+        int trynum = 10;
+        int divnum = 0;
 
-    }catch (runtime_error t){
-        cout << t.what() << endl;
+        if ( divnum == 0){
+            throw runtime_error("You can not divide by zero!");
     }
-
-	return 0;
+       int div = trynum / divnum;
+       cout << div << endl;
+    }
+    catch(runtime_error &error){
+        cout << error.what() << endl;
+    }
+    return 0;
 }

@@ -7,19 +7,19 @@ using namespace std;
 
 int main() {
 
-  /*  try {
-        char test_char = 'x';
-            throw test_char;
-    }catch (char t){
-        cout << t << endl;
-    }*/
-
     try {
-        char test_char_array[] = "test string in array";
-            throw test_char_array;
-    }catch (char *t){
-        cout << t << endl;
-    }
+        int trynum = 10;
+        int divnum = 0;
 
-	return 0;
+        if ( divnum == 0){
+            throw 'x';
+       }
+       int div = trynum / divnum;
+       cout << div << endl;
+    }
+    catch(char error){
+        cout << "error is: "<< error << endl;
+        cout<< "you can not devide by zero!" << endl;
+    }
+    return 0;
 }

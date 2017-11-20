@@ -9,7 +9,7 @@ int main() {
 
     try {
         int trynum = 10;
-        int divnum = 1;
+        int divnum = 0;
 
         if ( divnum == 0){
             throw 1;

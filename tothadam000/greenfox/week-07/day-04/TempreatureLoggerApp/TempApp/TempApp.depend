@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1511372394 source:c:\users\Ádám\tothadam000\tothadam000\greenfox\week-07\day-04\tempreatureloggerapp\tempapp\rs232\rs232-linux.c
+	"rs232.h"
+	<unistd.h>
+	<termios.h>
+	<fcntl.h>
+	<dirent.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+
+1511372394 c:\users\Ádám\tothadam000\tothadam000\greenfox\week-07\day-04\tempreatureloggerapp\tempapp\rs232\rs232.h
+	<stdint.h>
+	<stdlib.h>
+
+1511372394 source:c:\users\Ádám\tothadam000\tothadam000\greenfox\week-07\day-04\tempreatureloggerapp\tempapp\rs232\rs232-win.c
+	"rs232.h"
+	<stdio.h>
+	<string.h>
+
+1511377556 source:c:\users\Ádám\tothadam000\tothadam000\greenfox\week-07\day-04\tempreatureloggerapp\tempapp\serialportwrapper.cpp
+	"SerialPortWrapper.h"
+	"rs232/rs232.h"
+
+1511377544 c:\users\Ádám\tothadam000\tothadam000\greenfox\week-07\day-04\tempreatureloggerapp\tempapp\serialportwrapper.h
+	<string>
+	<vector>
+
+1511454594 source:c:\users\Ádám\tothadam000\tothadam000\greenfox\week-07\day-04\tempreatureloggerapp\tempapp\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	<conio.h>
+	<regex>
+	"SerialPortWrapper.h"
+

@@ -50,8 +50,7 @@ class ATM{
 vector<int> banknotes;
 
 
-void load_ATM()
-{
+void load_ATM(){
     int note;
 
     for (int i = 0; i < 5; i++) {
@@ -63,8 +62,7 @@ void load_ATM()
 
 }
 
-void print_num_of_banknotes()
-{
+void print_num_of_banknotes(){
     for (int i = 0; i < 5; i++) {
         switch (i)
         {
@@ -90,23 +88,22 @@ void print_num_of_banknotes()
 
 int main()
 {
-    bool exit = false;
     string userInput;
     string name;
     string password;
     string command;
-
-    while(!exit) {
+    char state = 0;
+    while(1) {
         cin >> userInput;
-        if (userInput == "exit") {
-            exit = true;
+        if (userInput == "e" && state == 0) {
+            break;
         } else if (userInput == "admin") {
             cout << "Give me your name: " << endl;
             cin >> name;
             cout << "Give me your password: " << endl;
             cin >> password;
 
-            cout << "What do you want from me?: " << endl;
+            cout << "What do you want to do?: " << endl;
             cout << "Loading up the ATM with banknotes: type in 'load'." << endl;
             cout << "Getting the ATM balance: type in 'balance'." << endl;
 
@@ -118,11 +115,10 @@ int main()
             } else {
                 cout << "else" << endl;
             }
-
         } else if (userInput == "customer") {
             cout << "cust!" << endl;
         } else {
-            cout << "Fuck you!" << endl;
+            cout << "cust else!" << endl;
         }
 
     }

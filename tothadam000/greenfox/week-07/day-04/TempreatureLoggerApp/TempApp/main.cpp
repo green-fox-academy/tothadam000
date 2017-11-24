@@ -10,7 +10,11 @@ using namespace std;
 void display_screen();
 int main()
 {
+    //regex pattern("2016");
+    //string ex = "2016. fgh df";
 
+    //if (regex_match(ex.c_str(), pattern))
+    //    cout << "meccs"<< endl;
     vector<string> ports = SerialPortWrapper::listAvailablePorts();
     cout << "Number of found serial ports: " << ports.size() << endl;
     for (unsigned int i = 0; i < ports.size(); i++) {
@@ -25,7 +29,8 @@ int main()
         string userInput;
         int portOpen = 0;
         int startLog = 0;
-        regex pattern("(19|20)\d\d[.]");
+        regex pattern("(19|20)\\d\\d\\..*");
+        smatch sm;
 
         display_screen();
         SerialPortWrapper *serial = new SerialPortWrapper("COM6", 115200);
@@ -56,9 +61,11 @@ int main()
                         serial->readLineFromPort(&line);
                         startLog = 1;
                         if (line.length() > 0){
-                              if ( regex_match(line, pattern) ){
-                                cout << line << endl;
+                            //cout << regex_match(line, pattern)<< endl;
+                             if (regex_match(line, pattern)){
+
                                 datas.push_back(line);
+
                              }
                         }
                         if (_kbhit()){

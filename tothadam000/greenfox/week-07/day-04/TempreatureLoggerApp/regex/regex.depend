@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1511470266 source:c:\users\Ádám\tothadam000\tothadam000\greenfox\week-07\day-04\tempreatureloggerapp\regex\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	<conio.h>
+	<regex>
+

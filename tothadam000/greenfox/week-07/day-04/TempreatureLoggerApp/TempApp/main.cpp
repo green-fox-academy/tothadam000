@@ -6,15 +6,15 @@
 
 #include "SerialPortWrapper.h"
 
-using namespace std;
-void display_screen();
+using namespace std;                                                                        //((0-9)|([1]\\(0-9))|(2\\(0-9)|(3\\(0|1))((0-9)|(1\\(0-9))|(2\\(0-3)))\\:((1-9)|((1-5)(0-9)))\\:((1-9)|((1-5)(0-9))).\\d
+void displayScreen();
 int main()
 {
-    //regex pattern("2016");
-    //string ex = "2016. fgh df";
+   /* regex pattern("1998.7.8");
+    string ex = ("^(19\\d\\d|(20(0[0-9])|(1(0-7))))..*");
 
-    //if (regex_match(ex.c_str(), pattern))
-    //    cout << "meccs"<< endl;
+    if (regex_match(ex.c_str(), pattern))
+        cout << ex << endl;*/
     vector<string> ports = SerialPortWrapper::listAvailablePorts();
     cout << "Number of found serial ports: " << ports.size() << endl;
     for (unsigned int i = 0; i < ports.size(); i++) {
@@ -29,17 +29,17 @@ int main()
         string userInput;
         int portOpen = 0;
         int startLog = 0;
-        regex pattern("(19|20)\\d\\d\\..*");
+        regex pattern("(19\\d\\d)|(20((0[0-9])|(1[0-7])))\\.(([1-9])|(1[0-2]))\\.(([1-9])|([1-2][0-9])|(3[0-1]))\\s(([0-9])|(1[0-9])|(2[0-3])):(([0-9])|([1-5][0-9])):(([0-9])|([1-5][0-9])).-*([0-9]|([1-9][0-9])|([1-9][0-9]{2}))");
         smatch sm;
 
-        display_screen();
+        displayScreen();
         SerialPortWrapper *serial = new SerialPortWrapper("COM6", 115200);
         while(1){
             cin >> userInput;
             if (userInput == "e") {
                 break;
             }else if (userInput == "h"){
-                display_screen();
+                displayScreen();
             }else if (userInput == "o"){
                 if (portOpen == 0){
                 serial->openPort();
@@ -88,7 +88,7 @@ int main()
         }
     return 0;
 }
-void display_screen(){
+void displayScreen(){
     cout << "      Temperature Logger Application" << endl << endl;
     cout << "=========================================" << endl;
     cout << " Commands:" << endl << endl;

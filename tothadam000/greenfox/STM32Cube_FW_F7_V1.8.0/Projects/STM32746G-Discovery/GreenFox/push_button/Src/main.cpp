@@ -63,6 +63,36 @@ static void CPU_CACHE_Enable(void);
   * @param  None
   * @retval None
   */
+
+void counter1(int counter){
+
+		BSP_LED_On(LED_GREEN);
+		HAL_Delay(500);
+		BSP_LED_Off(LED_GREEN);
+		HAL_Delay(500);
+		BSP_LED_On(LED_GREEN);
+		HAL_Delay(500);
+		BSP_LED_Off(LED_GREEN);
+		HAL_Delay(500);
+		BSP_LED_On(LED_GREEN);
+		HAL_Delay(500);
+		BSP_LED_Off(LED_GREEN);
+
+  	  counter = 0;
+}
+
+void counter2(int counter){
+
+		BSP_LED_On(LED_GREEN);
+		HAL_Delay(500);
+		BSP_LED_Off(LED_GREEN);
+		HAL_Delay(500);
+		BSP_LED_On(LED_GREEN);
+		HAL_Delay(500);
+		BSP_LED_Off(LED_GREEN);
+
+  	  counter = 0;
+}
 int main(void)
 {
   /* This project template calls firstly two functions in order to configure MPU feature 
@@ -90,15 +120,32 @@ int main(void)
 
   //TODO:
   //Initialization the push button and the led with using BSP
-  
+  BSP_LED_Init(LED_GREEN);
+  BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_GPIO);
   //Turn the led on to validate the initialization is occured.
   
   /* Add your application code here     */
   /* Infinite loop */
+int counter = 0;
+
+
+
   while (1)
   {
+	  BSP_PB_GetState(BUTTON_KEY)
+		  counter++;
+
+
+	  if (counter == 1){
+		  counter1(counter);
+	  }else if (counter == 2){
+		  counter2(counter);
+	  }else BSP_LED_Off(LED_GREEN);
+
+
 	  //TODO:
 	  //Write a simple program witch flashes(toggle) the led when the button is pressed
+
   }
 }
 

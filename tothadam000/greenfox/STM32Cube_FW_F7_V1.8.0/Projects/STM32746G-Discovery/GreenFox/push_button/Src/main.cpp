@@ -132,7 +132,7 @@ int counter = 0;
 
   while (1)
   {
-	  BSP_PB_GetState(BUTTON_KEY)
+	  BSP_PB_GetState(BUTTON_KEY);
 		  counter++;
 
 

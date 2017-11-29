@@ -1,10 +1,10 @@
  /**
   ******************************************************************************
-  * @file    Templates/Src/main.c 
+  * @file    Templates/Src/main.c
   * @author  MCD Application Team
   * @version V1.0.3
-  * @date    22-April-2016 
-  * @brief   STM32F7xx HAL API Template project 
+  * @date    22-April-2016
+  * @brief   STM32F7xx HAL API Template project
   ******************************************************************************
   * @attention
   *
@@ -44,7 +44,7 @@
 
 /** @addtogroup Templates
   * @{
-  */ 
+  */
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -64,48 +64,27 @@ static void CPU_CACHE_Enable(void);
   * @retval None
   */
 
-void counter1(int counter){
 
-		BSP_LED_On(LED_GREEN);
-		HAL_Delay(500);
-		BSP_LED_Off(LED_GREEN);
-		HAL_Delay(500);
-		BSP_LED_On(LED_GREEN);
-		HAL_Delay(500);
-		BSP_LED_Off(LED_GREEN);
-		HAL_Delay(500);
-		BSP_LED_On(LED_GREEN);
-		HAL_Delay(500);
-		BSP_LED_Off(LED_GREEN);
 
-  	  counter = 0;
-}
-
-void counter2(int counter){
-
-		BSP_LED_On(LED_GREEN);
-		HAL_Delay(500);
-		BSP_LED_Off(LED_GREEN);
-		HAL_Delay(500);
-		BSP_LED_On(LED_GREEN);
-		HAL_Delay(500);
-		BSP_LED_Off(LED_GREEN);
-
-  	  counter = 0;
-}
 int main(void)
 {
-  /* This project template calls firstly two functions in order to configure MPU feature 
+
+  /* This project template calls firstly two functions in order to configure MPU feature
      and to enable the CPU Cache, respectively MPU_Config() and CPU_CACHE_Enable().
-     These functions are provided as template implementation that User may integrate 
-     in his application, to enhance the performance in case of use of AXI interface 
-     with several masters. */ 
-  
+     These functions are provided as template implementation that User may integrate
+     in his application, to enhance the performance in case of use of AXI interface
+     with several masters. */
+
   /* Configure the MPU attributes as Write Through */
   MPU_Config();
 
   /* Enable the CPU Cache */
   CPU_CACHE_Enable();
+
+  HAL_Init();
+
+    /* Configure the System clock to have a frequency of 216 MHz */
+    SystemClock_Config();
 
   /* STM32F7xx HAL library initialization:
        - Configure the Flash ART accelerator on ITCM interface
@@ -113,45 +92,127 @@ int main(void)
        - Set NVIC Group Priority to 4
        - Low Level Initialization
      */
-  HAL_Init();
+	__HAL_RCC_GPIOA_CLK_ENABLE();    // we need to enable the GPIOA port's clock first
 
-  /* Configure the System clock to have a frequency of 216 MHz */
-  SystemClock_Config();
+	GPIO_InitTypeDef tda;            // create a config structure
+	tda.Pin = GPIO_PIN_0;            // this is about PIN 0
+	tda.Mode = GPIO_MODE_OUTPUT_PP;  // Configure as output with push-up-down enabled
+	tda.Pull = GPIO_PULLDOWN;        // the push-up-down should work as pulldown
+	tda.Speed = GPIO_SPEED_HIGH;     // we need a high-speed output
 
-  //TODO:
-  //Initialization the push button and the led with using BSP
-  BSP_LED_Init(LED_GREEN);
-  BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_GPIO);
-  //Turn the led on to validate the initialization is occured.
-  
-  /* Add your application code here     */
-  /* Infinite loop */
-int counter = 0;
+	HAL_GPIO_Init(GPIOA, &tda);      // initialize the pin on GPIOA port with HAL;
 
 
+	__HAL_RCC_GPIOF_CLK_ENABLE();
 
-  while (1)
-  {
-	  BSP_PB_GetState(BUTTON_KEY);
-		  counter++;
+	GPIO_InitTypeDef tda1;            // create a config structure
+	tda1.Pin = GPIO_PIN_10;            // this is about PIN 1
+	tda1.Mode = GPIO_MODE_OUTPUT_PP;  // Configure as output with push-up-down enabled
+	tda1.Pull = GPIO_PULLDOWN;        // the push-up-down should work as pulldown
+	tda1.Speed = GPIO_SPEED_HIGH;     // we need a high-speed output
+
+	HAL_GPIO_Init(GPIOF, &tda1);      // initialize the pin on GPIOF port with HAL;
+
+	GPIO_InitTypeDef tda2;            // create a config structure
+	tda2.Pin = GPIO_PIN_9;            // this is about PIN 9
+	tda2.Mode = GPIO_MODE_OUTPUT_PP;  // Configure as output with push-up-down enabled
+	tda2.Pull = GPIO_PULLDOWN;        // the push-up-down should work as pulldown
+	tda2.Speed = GPIO_SPEED_HIGH;     // we need a high-speed output
+
+	HAL_GPIO_Init(GPIOF, &tda2);      // initialize the pin on GPIOA port with HAL;
+
+	GPIO_InitTypeDef tda3;            // create a config structure
+	tda3.Pin = GPIO_PIN_8;            // this is about PIN 8
+	tda3.Mode = GPIO_MODE_OUTPUT_PP;  // Configure as output with push-up-down enabled
+	tda3.Pull = GPIO_PULLDOWN;        // the push-up-down should work as pulldown
+	tda3.Speed = GPIO_SPEED_HIGH;     // we need a high-speed output
+
+	HAL_GPIO_Init(GPIOF, &tda3);      // initialize the pin on GPIOF port with HAL;
+
+	GPIO_InitTypeDef tda4;            // create a config structure
+	tda4.Pin = GPIO_PIN_7;            // this is about PIN 87
+	tda4.Mode = GPIO_MODE_OUTPUT_PP;  // Configure as output with push-up-down enabled
+	tda4.Pull = GPIO_PULLDOWN;        // the push-up-down should work as pulldown
+	tda4.Speed = GPIO_SPEED_HIGH;     // we need a high-speed output
+
+	HAL_GPIO_Init(GPIOF, &tda4);      // initialize the pin on GPIOF port with HAL;
+
+	GPIO_InitTypeDef button;
+	button.Pin = GPIO_PIN_6;
+	button.Mode = GPIO_MODE_INPUT;
+	button.Pull = GPIO_PULLUP;
+	button.Speed = GPIO_SPEED_HIGH;
+
+	HAL_GPIO_Init(GPIOF, &button);
+
+	/*int button_counter = 0;
+
+	while(1)
+	{
+		  if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_6) == 0)
+		   {
+			  button_counter = 1;
+
+			while (button_counter = 1){
+			  HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_SET);   // setting the pin to 1
+
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);   // setting the pin to 1
+
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);   // setting the pin to 1
+
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_SET);   // setting the pin to 1
+
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_10, GPIO_PIN_SET);   // setting the pin to 1
+
+			HAL_Delay(100);
+
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);   // setting the pin to 1
+
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_10, GPIO_PIN_RESET);   // setting the pin to 1
+
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);   // setting the pin to 1
+
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);   // setting the pin to 1
+
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);   // setting the pin to 1
+
+			HAL_Delay(100);
+
+			if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_6) == 0){
+
+				HAL_Delay(200);
+				if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_6) == 0){
+					button_counter = 0;
+					break;
+				}
+				break;
 
 
-	  if (counter == 1){
-		  counter1(counter);
-	  }else if (counter == 2){
-		  counter2(counter);
-	  }else BSP_LED_Off(LED_GREEN);
+			}
+		   }
+		  }
+   }
+   */
+	//GPIOA -> ODR = 0b10000000000;
+	//GPIOF -> ODR = 1024;
+while(1)
+{
 
 
-	  //TODO:
-	  //Write a simple program witch flashes(toggle) the led when the button is pressed
+	GPIOF -> ODR = 1024 >> 1;
 
-  }
+	HAL_Delay(100);
+
+	/*GPIOA -> ODR = 0;
+	GPIOF -> ODR = 0;
+	HAL_Delay(100);*/
+}
+
 }
 
 /**
   * @brief  System Clock Configuration
-  *         The system Clock is configured as follow : 
+  *         The system Clock is configured as follow :
   *            System Clock source            = PLL (HSE)
   *            SYSCLK(Hz)                     = 216000000
   *            HCLK(Hz)                       = 216000000
@@ -169,6 +230,7 @@ int counter = 0;
   * @param  None
   * @retval None
   */
+
 static void SystemClock_Config(void)
 {
   RCC_ClkInitTypeDef RCC_ClkInitStruct;
@@ -181,7 +243,7 @@ static void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 25;
-  RCC_OscInitStruct.PLL.PLLN = 432;  
+  RCC_OscInitStruct.PLL.PLLN = 432;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 9;
   if(HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -194,14 +256,14 @@ static void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  
-  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 
+
+  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2
      clocks dividers */
   RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;  
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;  
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
   if(HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_7) != HAL_OK)
   {
     Error_Handler();
@@ -231,7 +293,7 @@ static void Error_Handler(void)
 static void MPU_Config(void)
 {
   MPU_Region_InitTypeDef MPU_InitStruct;
-  
+
   /* Disable the MPU */
   HAL_MPU_Disable();
 
@@ -278,7 +340,7 @@ static void CPU_CACHE_Enable(void)
   * @retval None
   */
 void assert_failed(uint8_t* file, uint32_t line)
-{ 
+{
   /* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
 
@@ -291,10 +353,10 @@ void assert_failed(uint8_t* file, uint32_t line)
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */ 
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

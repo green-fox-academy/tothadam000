@@ -186,10 +186,20 @@ int main(void) {
 			HAL_Delay(300);
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_RESET);
 			//HAL_Delay(300);
-		}else if (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_6) == 0){
+		}else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) == 0){
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_SET);
 			HAL_Delay(300);
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);
+			//HAL_Delay(300);
+		}else if (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_6) == 0){
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
+			HAL_Delay(300);
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
+			//HAL_Delay(300);
+		}else if (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_7) == 0){
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_SET);
+			HAL_Delay(300);
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);
 			//HAL_Delay(300);
 		}
 	}

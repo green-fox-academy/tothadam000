@@ -74,6 +74,8 @@ static void CPU_CACHE_Enable(void);
  * @param  None
  * @retval None
  */
+
+
 int main(void) {
 	/* This project template calls firstly two functions in order to configure MPU feature
 	 and to enable the CPU Cache, respectively MPU_Config() and CPU_CACHE_Enable().
@@ -100,11 +102,10 @@ int main(void) {
 
 	/* Add your application code here
 	 */
-	__HAL_RCC_GPIOF_CLK_ENABLE()
-	__HAL_RCC_GPIOC_CLK_ENABLE()
-	__HAL_RCC_GPIOG_CLK_ENABLE()
-	__HAL_RCC_GPIOB_CLK_ENABLE()
-	;    // we need to enable the GPIOF port's clock first
+	__HAL_RCC_GPIOF_CLK_ENABLE();
+	__HAL_RCC_GPIOC_CLK_ENABLE();
+	__HAL_RCC_GPIOG_CLK_ENABLE();
+	__HAL_RCC_GPIOB_CLK_ENABLE();    // we need to enable the GPIOF port's clock first
 
 	GPIO_InitTypeDef red;            // create a config structure
 	red.Pin = GPIO_PIN_6;            // this is about PIN A5
@@ -179,7 +180,19 @@ int main(void) {
 
 	rnd_num = rnd_num % 4 + 1;
 
-
+	while (1){
+		if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6) == 0){
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
+			HAL_Delay(300);
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_RESET);
+			//HAL_Delay(300);
+		}else if (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_6) == 0){
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_SET);
+			HAL_Delay(300);
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);
+			//HAL_Delay(300);
+		}
+	}
 
 
 }

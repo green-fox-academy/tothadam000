@@ -177,31 +177,61 @@ int main(void) {
 	rnd.Instance = RNG;
 	HAL_RNG_Init(&rnd);
 	HAL_RNG_GenerateRandomNumber(&rnd, &rnd_num);
-
 	rnd_num = rnd_num % 4 + 1;
+
+	int sequence [3];
 
 	while (1){
 		if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6) == 0){
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
 			HAL_Delay(300);
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_RESET);
-			//HAL_Delay(300);
 		}else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) == 0){
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_SET);
 			HAL_Delay(300);
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);
-			//HAL_Delay(300);
 		}else if (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_6) == 0){
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
 			HAL_Delay(300);
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
-			//HAL_Delay(300);
 		}else if (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_7) == 0){
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_SET);
 			HAL_Delay(300);
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);
-			//HAL_Delay(300);
 		}
+
+		for (int i = 0;i < 4; i++){
+			sequence[i] = rnd_num;
+		}
+
+		/*string seq = "";
+			rnd_num = rnd_num % 4 + 1;
+			string userseq = "";
+		    char color[4];
+		    color[0]='R';
+		    color[1]='G';
+		    color[2]='B';
+		    color[3]='Y';
+		    int round = 1;
+
+		    seq = seq + color[rand()%4];
+		    cout << seq;
+
+		            cout << "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
+		            cout << seq << endl;
+		            cout << "Your input:       ";
+
+
+		            cin >> userseq;
+		            if (userseq != seq){
+		                cout << "Sorry, you lose. The correct sequence was: " << seq;
+		                break;
+		            } if (round == 15) {
+		                cout << "Congratulations! you win!";
+		                break;
+		            }
+		            round++;
+		 */
 	}
 
 

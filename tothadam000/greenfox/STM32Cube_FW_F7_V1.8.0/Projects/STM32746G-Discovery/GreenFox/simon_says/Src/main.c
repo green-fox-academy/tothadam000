@@ -180,47 +180,17 @@ int main(void) {
 
 	HAL_GPIO_Init(GPIOG, &button_blue);		// initialize the pin on GPIOG port with HAL;
 
-
-
-
-
-
 	int sequence [16];
-	int round = 1;
+	uint32_t round = 1;
 	while (1){
 
 	 rnd.Instance = RNG;
 	 HAL_RNG_Init(&rnd);
 
-
-	/*	if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6) == 0){
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
-			HAL_Delay(300);
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_RESET);
-		}else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) == 0){
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_SET);
-			HAL_Delay(300);
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);
-		}else if (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_6) == 0){
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
-			HAL_Delay(300);
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
-		}else if (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_7) == 0){
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_SET);
-			HAL_Delay(300);
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);
-		}*/
-
-		/*for (int i = 0; i < 3; i++){
-			sequence[i] = rnd_num;
-		}*/
-		for (int j = 0; j < 16 ; j++){
-			rnd_num = HAL_RNG_GetRandomNumber(&rnd) % 4 + 1;
-				sequence[j] = rnd_num;
-				//printf("%i\n",(int) rnd_num);
-
+	 for (int j = 0; j < 18 ; j++){
 			for (int i = 0; i < j; i ++){
-				printf("%i\n",(int) sequence[i]);
+				rnd_num = HAL_RNG_GetRandomNumber(&rnd) % 4 + 1;
+				sequence[j] = rnd_num;
 				if (sequence[i] == 1){
 					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
 					HAL_Delay(200);
@@ -242,24 +212,23 @@ int main(void) {
 					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);
 					HAL_Delay(500);
 				}
-				//HAL_Delay(500);
-			}
-		}
-		if (round == 16) {
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_SET);
-			HAL_Delay(4000);
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);
+			}HAL_Delay(3000);
+			round++;
+				if (round == 17) {
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_SET);
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_SET);
+					HAL_Delay(5000);
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_RESET);
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);
 
-			break;
+					break;
+				}
 		}
-		round++;
-		HAL_Delay(5000);
+		HAL_Delay(4000);
 	}
 }
 	/**

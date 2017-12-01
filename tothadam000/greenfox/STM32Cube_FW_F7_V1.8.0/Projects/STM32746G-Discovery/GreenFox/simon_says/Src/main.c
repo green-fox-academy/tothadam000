@@ -74,8 +74,9 @@ static void CPU_CACHE_Enable(void);
  * @param  None
  * @retval None
  */
-
-
+int round;
+uint32_t rnd_num;
+RNG_HandleTypeDef rnd;
 int main(void) {
 	/* This project template calls firstly two functions in order to configure MPU feature
 	 and to enable the CPU Cache, respectively MPU_Config() and CPU_CACHE_Enable().
@@ -100,6 +101,14 @@ int main(void) {
 	/* Configure the System clock to have a frequency of 216 MHz */
 	SystemClock_Config();
 
+	uart_handle.Init.BaudRate   = 115200;
+	uart_handle.Init.WordLength = UART_WORDLENGTH_8B;
+	uart_handle.Init.StopBits   = UART_STOPBITS_1;
+	uart_handle.Init.Parity     = UART_PARITY_NONE;
+	uart_handle.Init.HwFlowCtl  = UART_HWCONTROL_NONE;
+	uart_handle.Init.Mode       = UART_MODE_TX_RX;
+
+	  BSP_COM_Init(COM1, &uart_handle);
 	/* Add your application code here
 	 */
 	__HAL_RCC_GPIOF_CLK_ENABLE();
@@ -172,17 +181,19 @@ int main(void) {
 	HAL_GPIO_Init(GPIOG, &button_blue);		// initialize the pin on GPIOG port with HAL;
 
 
-	RNG_HandleTypeDef rnd;
-	uint32_t rnd_num;
-	rnd.Instance = RNG;
-	HAL_RNG_Init(&rnd);
-	HAL_RNG_GenerateRandomNumber(&rnd, &rnd_num);
-	rnd_num = rnd_num % 4 + 1;
 
-	int sequence [3];
 
+
+
+	int sequence [16];
+	int round = 1;
 	while (1){
-		if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6) == 0){
+
+	 rnd.Instance = RNG;
+	 HAL_RNG_Init(&rnd);
+
+
+	/*	if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6) == 0){
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
 			HAL_Delay(300);
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_RESET);
@@ -198,43 +209,58 @@ int main(void) {
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_SET);
 			HAL_Delay(300);
 			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);
-		}
+		}*/
 
-		for (int i = 0;i < 4; i++){
+		/*for (int i = 0; i < 3; i++){
 			sequence[i] = rnd_num;
+		}*/
+		for (int j = 0; j < 16 ; j++){
+			rnd_num = HAL_RNG_GetRandomNumber(&rnd) % 4 + 1;
+				sequence[j] = rnd_num;
+				//printf("%i\n",(int) rnd_num);
+
+			for (int i = 0; i < j; i ++){
+				printf("%i\n",(int) sequence[i]);
+				if (sequence[i] == 1){
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
+					HAL_Delay(200);
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_RESET);
+					HAL_Delay(500);
+				}else if (sequence[i] == 2){
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_SET);
+					HAL_Delay(200);
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);
+					HAL_Delay(500);
+				}else if (sequence[i] == 3){
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
+					HAL_Delay(200);
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
+					HAL_Delay(500);
+				}else if (sequence[i] == 4){
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_SET);
+					HAL_Delay(200);
+					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);
+					HAL_Delay(500);
+				}
+				//HAL_Delay(500);
+			}
 		}
+		if (round == 16) {
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_SET);
+			HAL_Delay(4000);
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);
 
-		/*string seq = "";
-			rnd_num = rnd_num % 4 + 1;
-			string userseq = "";
-		    char color[4];
-		    color[0]='R';
-		    color[1]='G';
-		    color[2]='B';
-		    color[3]='Y';
-		    int round = 1;
-
-		    seq = seq + color[rand()%4];
-		    cout << seq;
-
-		            cout << "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
-		            cout << seq << endl;
-		            cout << "Your input:       ";
-
-
-		            cin >> userseq;
-		            if (userseq != seq){
-		                cout << "Sorry, you lose. The correct sequence was: " << seq;
-		                break;
-		            } if (round == 15) {
-		                cout << "Congratulations! you win!";
-		                break;
-		            }
-		            round++;
-		 */
+			break;
+		}
+		round++;
+		HAL_Delay(5000);
 	}
-
-
 }
 	/**
 	 * @brief  Retargets the C library printf function to the USART.

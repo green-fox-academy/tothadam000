@@ -74,6 +74,8 @@ static void CPU_CACHE_Enable(void);
  * @param  None
  * @retval None
  */
+void end_blinking();
+
 int round;
 uint32_t rnd_num;
 RNG_HandleTypeDef rnd;
@@ -181,11 +183,11 @@ int main(void) {
 	HAL_GPIO_Init(GPIOG, &button_blue);		// initialize the pin on GPIOG port with HAL;
 
 	int sequence [16];
+	int user_seq [16];
 	uint32_t round = 1;
 	while (1){
-
-	 rnd.Instance = RNG;
-	 HAL_RNG_Init(&rnd);
+	rnd.Instance = RNG;
+	HAL_RNG_Init(&rnd);
 
 	 for (int j = 0; j < 18 ; j++){
 			for (int i = 0; i < j; i ++){
@@ -213,24 +215,60 @@ int main(void) {
 					HAL_Delay(500);
 				}
 			}HAL_Delay(3000);
-			round++;
+
+				if (round == 1 && sequence[0] == user_seq[0]){
+						continue;
+				} else {
+						end_blinking();
+					}
+						break;
+				if (round == 2 && sequence[1] == user_seq[1]){
+						continue;
+				} else {
+					end_blinking();
+				}
+						break;
+				if (round == 3 && sequence[1][2][3] == user_seq[1][2][3]){
+						continue;
+				} else {
+					end_blinking();
+				}
+						break;
+				if (round == 4 && sequence[1][2][3][4]==  user_seq[1][2][3][4]){
+						continue;
+				} else {
+					end_blinking();
+				}
+						break;
+				if (round == 5 && sequence[1][2][3][4][5] == user_seq[1][2][3][4][5]){
+						continue;
+				}else{
+					end_blinking();
+				}
+						break;
 				if (round == 17) {
-					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
-					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_SET);
-					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
-					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_SET);
-					HAL_Delay(5000);
-					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_RESET);
-					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);
-					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
-					HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);
+					end_blinking();
 
 					break;
 				}
+				round++;
 		}
 		HAL_Delay(4000);
 	}
 }
+void end_blinking(){
+	HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_SET);
+	HAL_Delay(5000);
+	HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);
+
+}
+
 	/**
 	 * @brief  Retargets the C library printf function to the USART.
 	 * @param  None

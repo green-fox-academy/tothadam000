@@ -77,6 +77,16 @@ static void CPU_CACHE_Enable(void);
  * @param  None
  * @retval None
  */
+void EXTI15_10_IRQHandler(){
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
+}
+void EXTI9_5_IRQHandler(){
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
+}
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_0);
+}
+
 int main(void) {
 	/* This project template calls firstly two functions in order to configure MPU feature
 	 and to enable the CPU Cache, respectively MPU_Config() and CPU_CACHE_Enable().
@@ -96,35 +106,8 @@ int main(void) {
 	 - Set NVIC Group Priority to 4
 	 - Low Level Initialization
 	 */
+
 	HAL_Init();
-
-	/* Configure the System clock to have a frequency of 216 MHz */
-	SystemClock_Config();
-
-	BSP_PB_Init(BUTTON_WAKEUP, BUTTON_MODE_EXTI);
-
-	/* Add your application code here
-	 */
-
-	__HAL_RCC_GPIOF_CLK_ENABLE();
-
-	GPIO_InitTypeDef red;            // create a config structure
-	red.Pin = GPIO_PIN_8;            // this is about PIN A5
-	red.Mode = GPIO_MODE_OUTPUT_PP; // Configure as output with push-up-down enabled
-	red.Pull = GPIO_PULLDOWN;        // the push-up-down should work as pulldown
-	red.Speed = GPIO_SPEED_HIGH;     // we need a high-speed output
-
-	HAL_GPIO_Init(GPIOF, &red);    // initialize the pin on GPIOF port with HAL;
-
-	GPIO_InitTypeDef button_red;		// create a config structure
-	button_red.Pin = GPIO_PIN_6;			// this is about PIN C6
-	button_red.Mode = GPIO_MODE_INPUT;
-	button_red.Pull = GPIO_PULLUP;
-	button_red.Speed = GPIO_SPEED_HIGH;
-
-	HAL_GPIO_Init(GPIOF, &button_red);		// initialize the pin on GPIOC port with HAL;
-
-
 
 	uart_handle.Init.BaudRate = 115200;
 	uart_handle.Init.WordLength = UART_WORDLENGTH_8B;
@@ -134,25 +117,63 @@ int main(void) {
 	uart_handle.Init.Mode = UART_MODE_TX_RX;
 
 	BSP_COM_Init(COM1, &uart_handle);
+	/* Configure the System clock to have a frequency of 216 MHz */
+	SystemClock_Config();
 
+	//BSP_PB_Init(BUTTON_WAKEUP, BUTTON_MODE_EXTI);
+   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_GPIO);
+
+	/* Add your application code here
+	 */
+    //__HAL_RCC_GPIOI_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_GPIOI_CLK_ENABLE();
+	__HAL_RCC_GPIOF_CLK_ENABLE();
+
+	GPIO_InitTypeDef red;            // create a config structure
+	red.Pin = GPIO_PIN_0;            // this is about PIN A5
+	red.Mode = GPIO_MODE_OUTPUT_PP; // Configure as output with push-up-down enabled
+	red.Pull = GPIO_PULLDOWN;        // the push-up-down should work as pulldown
+	red.Speed = GPIO_SPEED_HIGH;     // we need a high-speed output
+	HAL_GPIO_Init(GPIOA, &red);    // initialize the pin on GPIOF port with HAL;
+
+	GPIO_InitTypeDef button;			// create a config structure
+	button.Pin = GPIO_PIN_8;			// this is about PIN G7
+	button.Pull = GPIO_PULLUP;
+	button.Speed = GPIO_SPEED_FAST;
+	button.Mode = GPIO_MODE_IT_RISING;
+	HAL_GPIO_Init(GPIOF, &button);		// initialize the pin on GPIOG port with HAL;
+
+	GPIO_InitTypeDef conf;                // create the configuration struct
+	conf.Pin = GPIO_PIN_11; 				// the pin is the 11/ We know from the board's datasheet that a resistor is already installed externally for this button (so it's not floating), we don't want to use the internal pull feature */
+	conf.Pull = GPIO_NOPULL;
+	conf.Speed = GPIO_SPEED_FAST;			// port speed to fast
+	conf.Mode = GPIO_MODE_IT_RISING;		// Here is the trick: our mode is interrupt on rising edge */
+	HAL_GPIO_Init(GPIOI, &conf);
+	// call the HAL init
+	/* assign the lowest priority to our interrupt line */
+	HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0x0F, 0x00);
+	HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0x0F, 0x00);
+	/* tell the interrupt handling unit to process our interrupts */
+	HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 	printf("\n-----------------WELCOME-----------------\r\n");
 	printf("**********in STATIC interrupts WS**********\r\n\n");
 
-	int counter = 0;
+	//GPIO_PinState prevState = GPIO_PIN_RESET;
 
 	while (1) {
-		if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_6) ==  0 ) {
-			counter++;
-			if (counter % 2 == 1){
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
-			}if (counter % 2 == 0) {
-			HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
-			counter = 0;
+		/*if (prevState != BSP_PB_GetState(BUTTON_KEY)) {
+			if (prevState == GPIO_PIN_RESET) {
+				HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_0);
 			}
-		}
+			prevState = BSP_PB_GetState(BUTTON_KEY);
+		}*/
 	}
+
 }
+
 
 /**
  * @brief  Retargets the C library printf function to the USART.

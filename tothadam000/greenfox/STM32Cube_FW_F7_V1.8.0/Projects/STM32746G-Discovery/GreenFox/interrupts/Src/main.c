@@ -78,7 +78,7 @@ static void CPU_CACHE_Enable(void);
  * @retval None
  */
 void EXTI15_10_IRQHandler(){
-	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_11);
 }
 void EXTI9_5_IRQHandler(){
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
@@ -121,11 +121,10 @@ int main(void) {
 	SystemClock_Config();
 
 	//BSP_PB_Init(BUTTON_WAKEUP, BUTTON_MODE_EXTI);
-   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_GPIO);
+   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_EXTI);
 
 	/* Add your application code here
 	 */
-    //__HAL_RCC_GPIOI_CLK_ENABLE();
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	__HAL_RCC_GPIOI_CLK_ENABLE();
 	__HAL_RCC_GPIOF_CLK_ENABLE();
@@ -138,11 +137,11 @@ int main(void) {
 	HAL_GPIO_Init(GPIOA, &red);    // initialize the pin on GPIOF port with HAL;
 
 	GPIO_InitTypeDef button;			// create a config structure
-	button.Pin = GPIO_PIN_8;			// this is about PIN G7
+	button.Pin = GPIO_PIN_8;			// this is about PIN F8
 	button.Pull = GPIO_PULLUP;
 	button.Speed = GPIO_SPEED_FAST;
 	button.Mode = GPIO_MODE_IT_RISING;
-	HAL_GPIO_Init(GPIOF, &button);		// initialize the pin on GPIOG port with HAL;
+	HAL_GPIO_Init(GPIOF, &button);		// initialize the pin on GPIOF port with HAL;
 
 	GPIO_InitTypeDef conf;                // create the configuration struct
 	conf.Pin = GPIO_PIN_11; 				// the pin is the 11/ We know from the board's datasheet that a resistor is already installed externally for this button (so it's not floating), we don't want to use the internal pull feature */

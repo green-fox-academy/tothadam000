@@ -183,53 +183,45 @@ int main(void) {
 	//HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 	//HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);--------------------------------------------------------------------------------------
 
-	__HAL_RCC_GPIOA_CLK_ENABLE();
+//	__HAL_RCC_GPIOA_CLK_ENABLE();
+//
+//		PWMPinConfig.Alternate = GPIO_AF1_TIM1;
+//		PWMPinConfig.Mode = GPIO_MODE_AF_PP;
+//		PWMPinConfig.Pin = GPIO_PIN_8;
+//		PWMPinConfig.Pull = GPIO_PULLDOWN;
+//		PWMPinConfig.Speed = GPIO_SPEED_FAST;
+//
+//		HAL_GPIO_Init(GPIOA, &PWMPinConfig);
+//
+//		/*
+//		 * Configure timer
+//		 */
+//		__HAL_RCC_TIM1_CLK_ENABLE();
+//
+//		Timer2Handle.Instance = TIM1;
+//		Timer2Handle.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+//		Timer2Handle.Init.Period = 4000;
+//		Timer2Handle.Init.Prescaler = 54000;
+//		Timer2Handle.Init.CounterMode = TIM_COUNTERMODE_UP;
+//		HAL_TIM_Base_Init(&Timer2Handle);
+//		HAL_TIM_Base_Start(&Timer2Handle);
+//
+//		HAL_TIM_PWM_Init(&Timer2Handle);
+//
+//		Timer2OCConfig.OCMode = TIM_OCMODE_PWM1;
+//		Timer2OCConfig.Pulse = 400;
+//		HAL_TIM_PWM_ConfigChannel(&Timer2Handle, &Timer2OCConfig, TIM_CHANNEL_1);
 
-		PWMPinConfig.Alternate = GPIO_AF1_TIM2;
-		PWMPinConfig.Mode = GPIO_MODE_AF_PP;
-		PWMPinConfig.Pin = GPIO_PIN_15;
-		PWMPinConfig.Pull = GPIO_NOPULL;
-		PWMPinConfig.Speed = GPIO_SPEED_FAST;
+		//HAL_NVIC_SetPriority(TIM2_IRQn, 0x0F, 0x00);
 
-		HAL_GPIO_Init(GPIOA, &PWMPinConfig);
-
-		/*
-		 * Configure timer
-		 */
-		__HAL_RCC_TIM2_CLK_ENABLE();
-
-		Timer2Handle.Instance = TIM2;
-		Timer2Handle.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-		Timer2Handle.Init.Period = 1646;
-		Timer2Handle.Init.Prescaler = 0xFFFF;
-		Timer2Handle.Init.CounterMode = TIM_COUNTERMODE_UP;
-		HAL_TIM_Base_Init(&Timer2Handle);
-		HAL_TIM_Base_Start_IT(&Timer2Handle);
-
-		HAL_TIM_PWM_Init(&Timer2Handle);
-
-		Timer2OCConfig.OCMode = TIM_OCMODE_PWM1;
-		Timer2OCConfig.Pulse = 823;
-		HAL_TIM_PWM_ConfigChannel(&Timer2Handle, &Timer2OCConfig, TIM_CHANNEL_1);
-
-		__HAL_RCC_TIM3_CLK_ENABLE();
-
-		Timer3Handle.Instance = TIM3;
-		Timer3Handle.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-		Timer3Handle.Init.Period = 1646;
-		Timer3Handle.Init.Prescaler = 0xFFFF;
-		Timer3Handle.Init.CounterMode = TIM_COUNTERMODE_UP;
-		HAL_TIM_Base_Init(&Timer3Handle);
-		HAL_TIM_Base_Start_IT(&Timer3Handle);
-
-		HAL_NVIC_SetPriority(TIM3_IRQn, 0x0F, 0x00);
-
-		HAL_NVIC_EnableIRQ(TIM3_IRQn);
+		//HAL_NVIC_EnableIRQ(TIM2_IRQn);
 
 
 
 	printf("\n-----------------WELCOME-----------------\r\n");
 	printf("**********in STATIC interrupts WS**********\r\n\n");
+
+
 
 	//GPIO_PinState prevState = GPIO_PIN_RESET;
 
@@ -240,6 +232,8 @@ int main(void) {
 			}
 			prevState = BSP_PB_GetState(BUTTON_KEY);
 		}*/
+		printf("%d\n", TIM1 ->CNT);
+		HAL_Delay(1000);
 	}
 
 }

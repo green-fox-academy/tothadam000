@@ -81,20 +81,20 @@ void buttons_config() {
 	;
 
 	GPIO_InitTypeDef button1;			// create a config structure
-	button1.Pin = GPIO_PIN_8;			// this is about PIN G7
+	button1.Pin = GPIO_PIN_8;			// this is about PIN F8
 	button1.Mode = GPIO_MODE_INPUT;
 	button1.Pull = GPIO_PULLUP;
 	button1.Speed = GPIO_SPEED_HIGH;
 
-	HAL_GPIO_Init(GPIOF, &button1);	// initialize the pin on GPIOG port with HAL;
+	HAL_GPIO_Init(GPIOF, &button1);	// initialize the pin on GPIOF port with HAL;
 
 	GPIO_InitTypeDef button2;			// create a config structure
-	button2.Pin = GPIO_PIN_6;			// this is about PIN G7
+	button2.Pin = GPIO_PIN_6;			// this is about PIN F6
 	button2.Mode = GPIO_MODE_INPUT;
 	button2.Pull = GPIO_PULLUP;
 	button2.Speed = GPIO_SPEED_HIGH;
 
-	HAL_GPIO_Init(GPIOF, &button2);	// initialize the pin on GPIOG port with HAL;
+	HAL_GPIO_Init(GPIOF, &button2);	// initialize the pin on GPIOF port with HAL;
 }
 
 void fan_config() {
@@ -155,21 +155,23 @@ void pwm_start() {
 	GPIO_InitTypeDef conf;                // create the configuration struct
 	GPIO_InitTypeDef conf1;
 
-
 	void EXTI9_5_IRQHandler(){
 	 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
-	 }
+	 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
+	}
 	 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-	 	if (GPIO_Pin == GPIO_PIN_6){
-	 		TimerOCConfig.Pulse += 10;
-	 		HAL_TIM_PWM_ConfigChannel(&TimHandle, &TimerOCConfig, TIM_CHANNEL_1);
-	 		pwm_start();
-	 		printf("up\r\n");
-	 	} else if(GPIO_Pin == GPIO_PIN_8){
-			TimerOCConfig.Pulse -= 10;
+	 	if (GPIO_Pin == GPIO_PIN_6 && TimerOCConfig.Pulse < 99){
+	 			TimerOCConfig.Pulse += 2;
+				HAL_TIM_PWM_ConfigChannel(&TimHandle, &TimerOCConfig, TIM_CHANNEL_1);
+				pwm_start();
+				printf("up\r\n");
+				printf("pulse: %u\n\r", TIM1 -> CCR1);
+	 	} else if(GPIO_Pin == GPIO_PIN_8 && TimerOCConfig.Pulse >0){
+			TimerOCConfig.Pulse -= 2;
 			HAL_TIM_PWM_ConfigChannel(&TimHandle, &TimerOCConfig, TIM_CHANNEL_1);
 			pwm_start();
 			printf("down\r\n");
+			printf("pulse: %u\n\r", TIM1 -> CCR1);
 	 	}
 	 }
 
@@ -243,9 +245,7 @@ int main(void) {
 	printf("**********in STATIC timer & pwm WS**********\r\n\n");
 
 	while (1) {
-		if (TIM1->CNT ) {
-			//printf("%d \n", TIM1->CNT);
-		}
+
 	}
 
 }

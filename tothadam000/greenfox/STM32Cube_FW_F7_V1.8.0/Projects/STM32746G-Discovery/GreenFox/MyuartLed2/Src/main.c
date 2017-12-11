@@ -106,19 +106,31 @@ int main(void) {
 	BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_GPIO);
 	UARTSetting(COM1, &uart_handle);
 
-	//printf("%u", rnd_num);
 
 	/* Output a message using printf function */
 	printf("\n------------------WELCOME------------------\r\n");
 	printf("**********in STATIC reaction game**********\r\n\n");
 
-	char test[20] = "This is a test! ";
-	uint8_t ch = 0;
+	char result[20];
+
+	//GPIO_PinState prevState = GPIO_PIN_RESET;
 
 	while (1) {
-		HAL_UART_Transmit(&uart_handle, test, 20, 0xFFFF);
-		//ch +=1;
-		HAL_Delay(1000);
+		if(HAL_UART_Receive(&uart_handle,(uint8_t *) result, 3, HAL_MAX_DELAY)== HAL_OK){
+			if (strcmp (result, "on\n") == 0) {
+				BSP_LED_On(LED_GREEN);
+			}
+			else if (strcmp (result, "off") == 0) {
+				BSP_LED_Off(LED_GREEN);
+			}
+			else {
+				printf("Unknown command you Moron!\r\n");
+			}
+			/*memset(result, 0,sizeof(result));
+		HAL_UART_Transmit(&uart_handle, (uint8_t *)result, strlen (result), HAL_MAX_DELAY);*/
+		}
+		else
+			printf("Error\n\r");
 	}
 }
 

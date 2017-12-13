@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1513168998 source:c:\users\Ádám\documents\tothadam000\tothadam000\greenfox\week-09-practieday\01\main.cpp
+	<iostream>
+	<string>
+	<vector>
+

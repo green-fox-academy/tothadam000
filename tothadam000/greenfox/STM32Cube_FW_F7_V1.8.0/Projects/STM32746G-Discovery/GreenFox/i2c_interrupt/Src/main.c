@@ -107,6 +107,7 @@ void i2c_config(){
 	HAL_NVIC_EnableIRQ(I2C1_EV_IRQn);
 	HAL_NVIC_SetPriority(I2C1_EV_IRQn, 14, 0);
 }
+
 void I2C1_EV_IRQHandler(){
 	HAL_I2C_EV_IRQHandler(&I2cHandle);
 }
@@ -116,7 +117,7 @@ void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c){
 }
 
 void HAL_I2C_MasterRxCpltCallback (I2C_HandleTypeDef *hi2c){
-	printf("temp from callback: %d\n", temp);
+	printf("temp from callback: %d °C\n", temp);
 }
 
 
@@ -168,7 +169,7 @@ int main(void) {
 
 		//HAL_Delay(50);
 
-		printf("%d °C\n", temp);
+		//printf("%d °C\r\n", temp);
 		HAL_Delay(1000);
 	}
 }

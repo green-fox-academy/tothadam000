@@ -1,5 +1,4 @@
-# tothadam000
-Adam Toth repo
+# Adam Toth repo
 
 
 # Code collection for final exam

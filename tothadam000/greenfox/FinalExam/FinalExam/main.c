@@ -26,8 +26,6 @@ float avarage(){
         if (highest < nummbers[i])
             highest = nummbers[i];
     }
-    //printf("\n highest element present in the given array is : %f", highest);
-
     smallest = nummbers[0];
 
     int a = 0;
@@ -37,10 +35,8 @@ float avarage(){
         if (smallest > nummbers[a])
             smallest = nummbers[a];
     }
-    //printf("\n smallest element present in the given array is : %f", smallest);
 
-
-    return (highest + smallest)/2;
+    return (highest + smallest) / 2;
 }
 
 

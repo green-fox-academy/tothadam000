@@ -7,7 +7,7 @@ float avarage();
 
 int main()
 {
-    printf("%f", avarage());
+    printf("%.2f", avarage());
 
     return 0;
 }
@@ -21,19 +21,20 @@ float avarage(){
 
     int i = 0;
 
-    for (i = 1; i < 5; i++)
-    {
-        if (highest < nummbers[i])
+    for (i = 1; i < 5; i++) {
+        if (highest < nummbers[i]) {
             highest = nummbers[i];
+        }
     }
+
     smallest = nummbers[0];
 
     int a = 0;
 
-    for (a = 1; a < 5; a++)
-    {
-        if (smallest > nummbers[a])
+    for (a = 1; a < 5; a++) {
+        if (smallest > nummbers[a]) {
             smallest = nummbers[a];
+        }
     }
 
     return (highest + smallest) / 2;

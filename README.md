@@ -1,16 +1,16 @@
 # Adam Toth repo :metal: 
 ![rock](https://user-images.githubusercontent.com/31788996/35782522-60694cd4-09f9-11e8-844b-373eb019a91a.png)
 ## My completed tasks
-- [x] [Smarthome Project (On Stm32L4 Board)](https://github.com/greenfox-academy/huli-smarthome-device-static-fuchsit)
+- [x] [iOT Smarthome Project (On Stm32L4 Board) :house::cloud:](https://github.com/greenfox-academy/huli-smarthome-device-static-fuchsit)
 
 - [x] Stm32F7 Projects:
  1. [Reaction Game Project](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/STM32Cube_FW_F7_V1.8.0/Projects/STM32746G-Discovery/GreenFox/reaction_game)
 
- 2. [Simon Says Game Project](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/STM32Cube_FW_F7_V1.8.0/Projects/STM32746G-Discovery/GreenFox/simon_says)
+ 2. [Simon Says Game Project :video_game:](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/STM32Cube_FW_F7_V1.8.0/Projects/STM32746G-Discovery/GreenFox/simon_says)
 
- 3. [Temperature Logger](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/STM32Cube_FW_F7_V1.8.0/Projects/STM32746G-Discovery/GreenFox/i2c)
+ 3. [Temperature Logger :snowflake:](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/STM32Cube_FW_F7_V1.8.0/Projects/STM32746G-Discovery/GreenFox/i2c)
 
- 4. [Timer & Pwm](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/STM32Cube_FW_F7_V1.8.0/Projects/STM32746G-Discovery/GreenFox/timer_pwmt)
+ 4. [Timer & Pwm :clock2:](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/STM32Cube_FW_F7_V1.8.0/Projects/STM32746G-Discovery/GreenFox/timer_pwmt)
 
  5. [Uart controlled Leds](https://github.com/greenfox-academy/tothadam000/blob/master/tothadam000/greenfox/STM32Cube_FW_F7_V1.8.0/Projects/STM32746G-Discovery/GreenFox/MyuartLed2)
 
@@ -18,7 +18,7 @@
 
  7. [Temperature Logger in C++](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-07/day-04)
 
-- [x] [ATM Simaulator](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-07/day-03/ATM_simulator)
+- [x] [ATM Simaulator :atm:](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-07/day-03/ATM_simulator)
 
 - [x] Weekly Tasks:
 

@@ -41,11 +41,11 @@
 ```
 Final exam 1st task
 ```
->1.[Link to main.c](https://github.com/greenfox-academy/tothadam000/blob/master/tothadam000/greenfox/FinalExam/FinalExam/main.c)
+>1. [Link to main.c](https://github.com/greenfox-academy/tothadam000/blob/master/tothadam000/greenfox/FinalExam/FinalExam/main.c)
 ```
 Requirement
 ```
->1. [exam requirement](https://github.com/greenfox-academy/definitions/blob/master/requirement/final-hardware.md)
+>1. [Exam requirement](https://github.com/greenfox-academy/definitions/blob/master/requirement/final-hardware.md)
 
 ```
 My example codes

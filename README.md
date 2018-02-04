@@ -1,4 +1,4 @@
-# Adam Toth repo ► /play yeah
+# Adam Toth repo ► /play yeah :metal:
 ## My completed tasks
 
 

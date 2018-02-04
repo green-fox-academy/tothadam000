@@ -22,19 +22,19 @@
 
 - [x] Weekly Tasks:
 
->  [Week 7 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-07)
+  > [Week 7 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-07)
 
->  [Week 6 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-06)
+  > [Week 6 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-06)
 
->  [Week 5 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-05)
+  > [Week 5 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-05)
 
->  [Week 4 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-04)
+  > [Week 4 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-04)
 
->  [Week 3 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-03)
+  > [Week 3 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-03)
 
->  [Week 2 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-02)
+  > [Week 2 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-02)
 
->  [Week 1 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-01)
+  > [Week 1 Tasks](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/week-01)
 
 ## Code collection for final exam
 

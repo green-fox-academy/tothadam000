@@ -4,7 +4,7 @@
 - [x] [Smarthome Project (On Stm32L4 Board)](https://github.com/greenfox-academy/huli-smarthome-device-static-fuchsit)
 
 - [x] Stm32F7 Projects:
->1. [Reaction Game Project](https://github.com/greenfox-           academy/tothadam000/tree/master/tothadam000/greenfox/STM32Cube_FW_F7_V1.8.0/Projects/STM32746G-Discovery/GreenFox/reaction_game)
+>1. [Reaction Game Project](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/STM32Cube_FW_F7_V1.8.0/Projects/STM32746G-Discovery/GreenFox/reaction_game)
 
 >2. [Simon Says Game Project](https://github.com/greenfox-academy/tothadam000/tree/master/tothadam000/greenfox/STM32Cube_FW_F7_V1.8.0/Projects/STM32746G-Discovery/GreenFox/simon_says)
 

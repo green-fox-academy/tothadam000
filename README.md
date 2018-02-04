@@ -1,8 +1,14 @@
-# Adam Toth repo
+# Adam Toth repo ► /play yeah
+## My completed tasks
 
 
-# Code collection for final exam
 
+## Code collection for final exam
+
+```
+Final exam 1st task
+```
+>1. [Link to main.c](https://github.com/greenfox-academy/tothadam000/blob/master/tothadam000/greenfox/FinalExam/FinalExam/main.c)
 ```
 Requirement
 ```
